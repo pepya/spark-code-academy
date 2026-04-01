@@ -9,6 +9,7 @@ import LessonsPage from "@/pages/LessonsPage";
 import LessonDetailPage from "@/pages/LessonDetailPage";
 import BadgesPage from "@/pages/BadgesPage";
 import ParentsPage from "@/pages/ParentsPage";
+import LessonScriptsPage from "@/pages/LessonScriptsPage";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
