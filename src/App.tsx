@@ -27,6 +27,7 @@ const App = () => (
           <Route path="/lessons/:id" element={<LessonDetailPage />} />
           <Route path="/badges" element={<BadgesPage />} />
           <Route path="/parents" element={<ParentsPage />} />
+          <Route path="/lesson-scripts" element={<LessonScriptsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
