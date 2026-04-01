@@ -42,6 +42,12 @@ export const badges: Badge[] = [
   { id: "animator", title: "Animator", description: "Create animations!", icon: "🎬", color: "peach" },
   { id: "coder", title: "Coder", description: "Use loops and conditions!", icon: "💻", color: "sky" },
   { id: "explorer", title: "Explorer", description: "Explore advanced blocks!", icon: "🚀", color: "lavender" },
+  { id: "playground-pro", title: "Playground Pro", description: "Explored the ScratchJr playground!", icon: "🛝", color: "accent" },
+  { id: "story-builder", title: "Story Builder", description: "Built a multi-page story!", icon: "📖", color: "coral" },
+  { id: "loop-master", title: "Loop Master", description: "Mastered loops and repeats!", icon: "🔁", color: "mint" },
+  { id: "messenger", title: "Messenger", description: "Used messages between characters!", icon: "📬", color: "purple" },
+  { id: "sound-designer", title: "Sound Designer", description: "Added sounds and music!", icon: "🎵", color: "peach" },
+  { id: "graduate", title: "Graduate", description: "Completed the full ScratchJr program!", icon: "🎓", color: "primary" },
 ];
 
 export const lessons: Lesson[] = [
