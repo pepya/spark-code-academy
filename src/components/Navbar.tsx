@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { BookOpen, Home, Award, Users, Menu, X } from "lucide-react";
+import { BookOpen, Home, Award, Users, Menu, X, ClipboardList } from "lucide-react";
 import { useState } from "react";
 
 const navItems = [
@@ -8,6 +8,7 @@ const navItems = [
   { to: "/lessons", label: "Lessons", icon: BookOpen },
   { to: "/badges", label: "Badges", icon: Award },
   { to: "/parents", label: "For Parents", icon: Users },
+  { to: "/lesson-scripts", label: "Lesson Scripts", icon: ClipboardList },
 ];
 
 export default function Navbar() {
