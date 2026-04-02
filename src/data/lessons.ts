@@ -12,6 +12,13 @@ export interface Quiz {
   correctIndex: number;
 }
 
+export interface BonusChallenge {
+  level: "tricky" | "hard" | "super-hard" | "very-hard" | "legend";
+  title: string;
+  description: string;
+  hint: string;
+}
+
 export interface Lesson {
   id: string;
   title: string;
@@ -22,6 +29,7 @@ export interface Lesson {
   scratchUrl: string;
   quiz?: Quiz;
   badgeId: string;
+  bonusChallenges?: BonusChallenge[];
 }
 
 export interface Badge {
@@ -208,6 +216,11 @@ export const lessons: Lesson[] = [
     scratchUrl: "https://www.scratchjr.org/",
     quiz: { question: "What colour are the blocks that make characters MOVE in ScratchJr?", options: ["Purple", "Blue", "Yellow", "Green"], correctIndex: 1 },
     badgeId: "playground-pro",
+    bonusChallenges: [
+      { level: "tricky", title: "The Disappearing Act 🎩", description: "Make a character walk across the whole stage, then slowly shrink smaller and smaller until it completely disappears — as if it walked into the distance. Use at least 6 blocks.", hint: "Chain multiple shrink blocks together — what happens if you do it 5 times in a row?" },
+      { level: "hard", title: "Two-Character Conversation 💬", description: "Put 2 characters on stage. When you tap Character A, it moves right and says something. Then Character B automatically reacts — moves left AND says something back — WITHOUT you tapping it.", hint: "How can Character B 'know' that A finished moving?" },
+      { level: "super-hard", title: "The Mirror Challenge 🪞", description: "Draw TWO identical characters. When you press the green flag, both must do exactly the same moves — but one goes left when the other goes right. They must be perfectly mirrored at all times, like a reflection.", hint: "This requires two separate scripts running simultaneously. Can you figure out the movements?" },
+    ],
   },
   {
     id: "scratchjr-week2",
@@ -225,6 +238,11 @@ export const lessons: Lesson[] = [
     scratchUrl: "https://www.scratchjr.org/",
     quiz: { question: "What colour is the 'go to page' block that jumps between scenes?", options: ["Blue", "Yellow", "Orange", "Purple"], correctIndex: 2 },
     badgeId: "story-builder",
+    bonusChallenges: [
+      { level: "tricky", title: "The Emotional Scene 😮", description: "Create a scene where the TIMING of the wait blocks changes the whole mood. Build the same scene twice on two pages — once with very fast timing (exciting!) and once with very slow timing (scary or mysterious). Same script, totally different feeling.", hint: "Watch movies — notice how slow scenes feel tense and fast scenes feel exciting?" },
+      { level: "hard", title: "5-Page Epic Story 🗺️", description: "Build a story with exactly 5 pages. Rules: every page must have a different background (all drawn by you), at least 2 characters must appear across the story, and the story must have a clear beginning, problem, and solution — just like a real book.", hint: "Plan your story on paper first. 5 pages = 5 sentences. What happens in each one?" },
+      { level: "super-hard", title: "The Silent Film 🎬", description: "Tell a complete story with NO speech bubbles. No 'say' blocks at all. The entire story must be communicated only through character movement, size changes, and timing. A viewer who can't read should understand exactly what's happening.", hint: "Think like a mime artist or a silent movie director. How do you show happiness, fear, or surprise without words?" },
+    ],
   },
   {
     id: "scratchjr-week3",
@@ -242,6 +260,11 @@ export const lessons: Lesson[] = [
     scratchUrl: "https://www.scratchjr.org/",
     quiz: { question: "What's the difference between a Repeat loop and a Forever loop?", options: ["Repeat is faster", "Forever runs a set number of times", "Repeat runs a set number of times, Forever never stops", "There is no difference"], correctIndex: 2 },
     badgeId: "loop-master",
+    bonusChallenges: [
+      { level: "tricky", title: "The Perfect Square 🟦", description: "Using ONLY move and turn blocks inside a repeat loop, make a character trace a perfect square path. It must end up exactly where it started. How many moves and turns do you need? What number of turns makes a right angle?", hint: "A square has 4 sides and 4 corners. What does that tell you about your repeat number?" },
+      { level: "hard", title: "Synchronized Swimming 🏊", description: "Add 4 characters to the stage. All 4 must move in perfect sync — same direction, same speed, same moment. But each one must start in a different corner of the stage. They move together like a swimming team formation.", hint: "You need 4 separate scripts all triggered at the same time. Think about what makes them all start simultaneously." },
+      { level: "super-hard", title: "The Infinity Machine ♾️", description: "Build a scene with 5 characters, each running a different forever loop. The challenge: they must all feel connected — like parts of a single machine working together. A cog turning, a lever moving, a light flashing, a dial spinning, a wheel rotating. Design the machine on paper first.", hint: "Think about a clock — every part moves at a different speed but they all work together. What's your machine?" },
+    ],
   },
   {
     id: "scratchjr-week4",
@@ -259,6 +282,11 @@ export const lessons: Lesson[] = [
     scratchUrl: "https://www.scratchjr.org/",
     quiz: { question: "What must match between a SEND and RECEIVE message block?", options: ["The shape", "The size", "The colour", "The name"], correctIndex: 2 },
     badgeId: "messenger",
+    bonusChallenges: [
+      { level: "tricky", title: "The Alarm System 🚨", description: "Create an alarm: tap a button character → it sends a red message → a light character flashes (grows and shrinks in a loop) → a siren character grows big and shows 'ALERT!'. All three must react to the single tap automatically.", hint: "One tap, one message, but multiple characters can receive the SAME message colour." },
+      { level: "hard", title: "The Ultimate Chase Game 🏃", description: "A chaser character bounces around in a forever loop. A target character bounces in a different forever loop. When the target is tapped: it hides, sends a WIN message, a trophy appears AND the chaser stops moving. Tap the trophy to reset and play again.", hint: "Stopping the chaser is the hard part — think about what happens to a forever loop when a character hides." },
+      { level: "super-hard", title: "The 3-Room Adventure 🗝️", description: "Build a 4-page adventure. Page 1: a locked door. Tap a KEY character → it sends a message → the door opens → page jumps to Room 1. In Room 1, tap a CHEST → jump to Room 2. In Room 2, solve a final tap puzzle → jump to the Treasure Room where a celebration plays.", hint: "This is how real video game levels work. Plan every tap and every message on paper before you build." },
+    ],
   },
   {
     id: "scratchjr-week5",
@@ -276,6 +304,11 @@ export const lessons: Lesson[] = [
     scratchUrl: "https://www.scratchjr.org/",
     quiz: { question: "What colour are the sound blocks in ScratchJr?", options: ["Blue", "Purple", "Green", "Orange"], correctIndex: 2 },
     badgeId: "sound-designer",
+    bonusChallenges: [
+      { level: "tricky", title: "The Sound Story 🎙️", description: "Retell your Week 2 story — but this time narrate every single line with your VOICE instead of speech bubbles. Record a separate voice clip for each moment. The story must make sense to someone listening with their eyes closed.", hint: "Record each line separately. Speak slowly and clearly. Listen back — does each clip match the action on screen?" },
+      { level: "hard", title: "The Full Orchestra 🎼", description: "Build an instrument with 8 notes (8 tap-able characters). Arrange them left to right as a scale. Each must be a different colour AND a different size (smallest = highest pitch). Then learn to play a real song: Happy Birthday, Twinkle Twinkle, or one you choose.", hint: "Label each character with its note name. Practice slowly first — it's just like learning real piano!" },
+      { level: "super-hard", title: "The Movie Trailer 🎬", description: "Create a 15-second movie trailer for an imaginary film. It must include: a dramatic voice narration you recorded, at least 3 scenes with page jumps, sound effects at key moments, characters growing/shrinking for dramatic effect, and a title card at the end. It must feel exciting and make someone want to see the 'full movie'!", hint: "Watch a real movie trailer first. Notice: fast cuts, big music, mysterious voice, dramatic reveals. Now make your own version!" },
+    ],
   },
   {
     id: "scratchjr-week6",
@@ -293,6 +326,11 @@ export const lessons: Lesson[] = [
     scratchUrl: "https://www.scratchjr.org/",
     quiz: { question: "What's the most important step before starting to code a big project?", options: ["Jump right in!", "Plan on paper first", "Add sounds", "Pick colours"], correctIndex: 1 },
     badgeId: "graduate",
+    bonusChallenges: [
+      { level: "hard", title: "Teach Someone Else 👩‍🏫", description: "Find someone who has never used ScratchJr — a younger sibling, grandparent, or friend. Teach them how to make a character move and say something. You have 15 minutes. You cannot touch the tablet — only explain and guide with words. Did they manage to do it?", hint: "The best way to know if you truly understand something is to try to explain it to someone else. This is what real teachers and programmers do!" },
+      { level: "very-hard", title: "The Everything Project 🌟", description: "Build one single project that uses ALL of the following: motion blocks, looks blocks, at least one loop, at least one message, at least one voice recording, page jumps, and a tap interaction. It must also tell a story OR be a playable game. Minimum 4 pages, minimum 4 characters.", hint: "This is your masterpiece. Plan for 2 full sessions. Draw everything on paper first. It will be the most impressive thing you've ever built!" },
+      { level: "legend", title: "Design Your Own Lesson 📝", description: "You know ScratchJr well enough now to be a teacher. Write a brand new lesson for a skill you wish you had learned during the 6 weeks. Give it a title, write 5 steps for a student to follow, write a challenge, and build the example project yourself. Share it with your parent or teacher.", hint: "What confused you? What was hard? What trick did you discover yourself? That's the best lesson to teach — because you really understand it." },
+    ],
   },
 ];
 

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { lessons, badges } from "@/data/lessons";
 import { useProgress } from "@/hooks/useProgress";
 import { ArrowLeft, ArrowRight, CheckCircle, ExternalLink, Trophy } from "lucide-react";
+import BonusChallenges from "@/components/BonusChallenges";
 
 export default function LessonDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -226,6 +227,11 @@ export default function LessonDetailPage() {
               <ExternalLink size={16} /> Open Scratch Editor
             </a>
           </div>
+
+          {/* Bonus Challenges */}
+          {lesson.bonusChallenges && lesson.bonusChallenges.length > 0 && (
+            <BonusChallenges challenges={lesson.bonusChallenges} />
+          )}
         </motion.div>
       </div>
     </div>
