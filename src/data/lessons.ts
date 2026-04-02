@@ -216,6 +216,11 @@ export const lessons: Lesson[] = [
     scratchUrl: "https://www.scratchjr.org/",
     quiz: { question: "What colour are the blocks that make characters MOVE in ScratchJr?", options: ["Purple", "Blue", "Yellow", "Green"], correctIndex: 1 },
     badgeId: "playground-pro",
+    bonusChallenges: [
+      { level: "tricky", title: "The Disappearing Act 🎩", description: "Make a character walk across the whole stage, then slowly shrink smaller and smaller until it completely disappears — as if it walked into the distance. Use at least 6 blocks.", hint: "Chain multiple shrink blocks together — what happens if you do it 5 times in a row?" },
+      { level: "hard", title: "Two-Character Conversation 💬", description: "Put 2 characters on stage. When you tap Character A, it moves right and says something. Then Character B automatically reacts — moves left AND says something back — WITHOUT you tapping it.", hint: "How can Character B 'know' that A finished moving?" },
+      { level: "super-hard", title: "The Mirror Challenge 🪞", description: "Draw TWO identical characters. When you press the green flag, both must do exactly the same moves — but one goes left when the other goes right. They must be perfectly mirrored at all times, like a reflection.", hint: "This requires two separate scripts running simultaneously. Can you figure out the movements?" },
+    ],
   },
   {
     id: "scratchjr-week2",
