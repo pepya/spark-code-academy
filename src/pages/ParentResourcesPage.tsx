@@ -41,7 +41,7 @@ const weeklyChecklists: WeekChecklist[] = [
     week: 2, title: "Tell a Story!", emoji: "🦁", subtitle: "Pages · Dialogue · Timing",
     items: [
       { text: "Can add and navigate between multiple pages", type: "SKILL" },
-      { text: "Uses "go to page" block to connect scenes", type: "SKILL" },
+      { text: 'Uses "go to page" block to connect scenes', type: "SKILL" },
       { text: "Builds dialogue with two characters taking turns using wait blocks", type: "SKILL" },
       { text: "Adjusts wait timing to feel natural", type: "SKILL" },
       { text: "Plans a story on paper before building in ScratchJr", type: "MINDSET" },
