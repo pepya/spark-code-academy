@@ -304,6 +304,11 @@ export const lessons: Lesson[] = [
     scratchUrl: "https://www.scratchjr.org/",
     quiz: { question: "What colour are the sound blocks in ScratchJr?", options: ["Blue", "Purple", "Green", "Orange"], correctIndex: 2 },
     badgeId: "sound-designer",
+    bonusChallenges: [
+      { level: "tricky", title: "The Sound Story 🎙️", description: "Retell your Week 2 story — but this time narrate every single line with your VOICE instead of speech bubbles. Record a separate voice clip for each moment. The story must make sense to someone listening with their eyes closed.", hint: "Record each line separately. Speak slowly and clearly. Listen back — does each clip match the action on screen?" },
+      { level: "hard", title: "The Full Orchestra 🎼", description: "Build an instrument with 8 notes (8 tap-able characters). Arrange them left to right as a scale. Each must be a different colour AND a different size (smallest = highest pitch). Then learn to play a real song: Happy Birthday, Twinkle Twinkle, or one you choose.", hint: "Label each character with its note name. Practice slowly first — it's just like learning real piano!" },
+      { level: "super-hard", title: "The Movie Trailer 🎬", description: "Create a 15-second movie trailer for an imaginary film. It must include: a dramatic voice narration you recorded, at least 3 scenes with page jumps, sound effects at key moments, characters growing/shrinking for dramatic effect, and a title card at the end. It must feel exciting and make someone want to see the 'full movie'!", hint: "Watch a real movie trailer first. Notice: fast cuts, big music, mysterious voice, dramatic reveals. Now make your own version!" },
+    ],
   },
   {
     id: "scratchjr-week6",
