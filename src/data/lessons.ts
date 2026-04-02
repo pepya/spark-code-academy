@@ -282,6 +282,11 @@ export const lessons: Lesson[] = [
     scratchUrl: "https://www.scratchjr.org/",
     quiz: { question: "What must match between a SEND and RECEIVE message block?", options: ["The shape", "The size", "The colour", "The name"], correctIndex: 2 },
     badgeId: "messenger",
+    bonusChallenges: [
+      { level: "tricky", title: "The Alarm System 🚨", description: "Create an alarm: tap a button character → it sends a red message → a light character flashes (grows and shrinks in a loop) → a siren character grows big and shows 'ALERT!'. All three must react to the single tap automatically.", hint: "One tap, one message, but multiple characters can receive the SAME message colour." },
+      { level: "hard", title: "The Ultimate Chase Game 🏃", description: "A chaser character bounces around in a forever loop. A target character bounces in a different forever loop. When the target is tapped: it hides, sends a WIN message, a trophy appears AND the chaser stops moving. Tap the trophy to reset and play again.", hint: "Stopping the chaser is the hard part — think about what happens to a forever loop when a character hides." },
+      { level: "super-hard", title: "The 3-Room Adventure 🗝️", description: "Build a 4-page adventure. Page 1: a locked door. Tap a KEY character → it sends a message → the door opens → page jumps to Room 1. In Room 1, tap a CHEST → jump to Room 2. In Room 2, solve a final tap puzzle → jump to the Treasure Room where a celebration plays.", hint: "This is how real video game levels work. Plan every tap and every message on paper before you build." },
+    ],
   },
   {
     id: "scratchjr-week5",
