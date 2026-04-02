@@ -69,7 +69,7 @@ const weeklyChecklists: WeekChecklist[] = [
       { text: "Creates a 3+ character chain reaction", type: "SKILL" },
       { text: "Uses tap trigger to create interactive content", type: "SKILL" },
       { text: "Builds a simple tap-to-win game with a reaction", type: "SKILL" },
-      { text: "Can explain "event-driven" in their own words", type: "MINDSET" },
+      { text: 'Can explain "event-driven" in their own words', type: "MINDSET" },
       { text: "Designs an interactive story with at least 2 different paths", type: "SKILL" },
     ],
   },
