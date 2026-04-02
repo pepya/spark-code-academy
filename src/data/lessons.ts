@@ -238,6 +238,11 @@ export const lessons: Lesson[] = [
     scratchUrl: "https://www.scratchjr.org/",
     quiz: { question: "What colour is the 'go to page' block that jumps between scenes?", options: ["Blue", "Yellow", "Orange", "Purple"], correctIndex: 2 },
     badgeId: "story-builder",
+    bonusChallenges: [
+      { level: "tricky", title: "The Emotional Scene 😮", description: "Create a scene where the TIMING of the wait blocks changes the whole mood. Build the same scene twice on two pages — once with very fast timing (exciting!) and once with very slow timing (scary or mysterious). Same script, totally different feeling.", hint: "Watch movies — notice how slow scenes feel tense and fast scenes feel exciting?" },
+      { level: "hard", title: "5-Page Epic Story 🗺️", description: "Build a story with exactly 5 pages. Rules: every page must have a different background (all drawn by you), at least 2 characters must appear across the story, and the story must have a clear beginning, problem, and solution — just like a real book.", hint: "Plan your story on paper first. 5 pages = 5 sentences. What happens in each one?" },
+      { level: "super-hard", title: "The Silent Film 🎬", description: "Tell a complete story with NO speech bubbles. No 'say' blocks at all. The entire story must be communicated only through character movement, size changes, and timing. A viewer who can't read should understand exactly what's happening.", hint: "Think like a mime artist or a silent movie director. How do you show happiness, fear, or surprise without words?" },
+    ],
   },
   {
     id: "scratchjr-week3",
