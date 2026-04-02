@@ -52,7 +52,7 @@ const weeklyChecklists: WeekChecklist[] = [
   {
     week: 3, title: "Loops & Repeats!", emoji: "🔁", subtitle: "Repeat · Forever · Patterns",
     items: [
-      { text: "Explains why loops are useful ("less blocks for more repetitions")", type: "SKILL" },
+      { text: 'Explains why loops are useful ("less blocks for more repetitions")', type: "SKILL" },
       { text: "Correctly places blocks INSIDE a repeat loop", type: "SKILL" },
       { text: "Uses forever loop for continuous animation", type: "SKILL" },
       { text: "Can stop a forever loop with the red stop button", type: "SKILL" },
