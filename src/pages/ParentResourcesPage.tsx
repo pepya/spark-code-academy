@@ -91,7 +91,7 @@ const weeklyChecklists: WeekChecklist[] = [
       { text: "Completes all art assets (characters + backgrounds) independently", type: "SKILL" },
       { text: "Adds code (motion, loops, messages, sound) without guided steps", type: "SKILL" },
       { text: "Identifies and fixes at least one bug on their own", type: "MINDSET" },
-      { text: "Adds title screen with name and "The End" page", type: "SKILL" },
+      { text: 'Adds title screen with name and "The End" page', type: "SKILL" },
       { text: "Presents project to family confidently", type: "SOCIAL" },
       { text: "Can answer "what was hardest?" and "what are you most proud of?"", type: "SOCIAL" },
       { text: "Talks about what they want to learn or build NEXT", type: "MINDSET" },
