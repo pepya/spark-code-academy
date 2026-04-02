@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { lessons, badges } from "@/data/lessons";
 import { useProgress } from "@/hooks/useProgress";
 import { ArrowLeft, ArrowRight, CheckCircle, ExternalLink, Trophy } from "lucide-react";
+import BonusChallenges from "@/components/BonusChallenges";
 
 export default function LessonDetailPage() {
   const { id } = useParams<{ id: string }>();
