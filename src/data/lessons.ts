@@ -326,6 +326,11 @@ export const lessons: Lesson[] = [
     scratchUrl: "https://www.scratchjr.org/",
     quiz: { question: "What's the most important step before starting to code a big project?", options: ["Jump right in!", "Plan on paper first", "Add sounds", "Pick colours"], correctIndex: 1 },
     badgeId: "graduate",
+    bonusChallenges: [
+      { level: "hard", title: "Teach Someone Else 👩‍🏫", description: "Find someone who has never used ScratchJr — a younger sibling, grandparent, or friend. Teach them how to make a character move and say something. You have 15 minutes. You cannot touch the tablet — only explain and guide with words. Did they manage to do it?", hint: "The best way to know if you truly understand something is to try to explain it to someone else. This is what real teachers and programmers do!" },
+      { level: "very-hard", title: "The Everything Project 🌟", description: "Build one single project that uses ALL of the following: motion blocks, looks blocks, at least one loop, at least one message, at least one voice recording, page jumps, and a tap interaction. It must also tell a story OR be a playable game. Minimum 4 pages, minimum 4 characters.", hint: "This is your masterpiece. Plan for 2 full sessions. Draw everything on paper first. It will be the most impressive thing you've ever built!" },
+      { level: "legend", title: "Design Your Own Lesson 📝", description: "You know ScratchJr well enough now to be a teacher. Write a brand new lesson for a skill you wish you had learned during the 6 weeks. Give it a title, write 5 steps for a student to follow, write a challenge, and build the example project yourself. Share it with your parent or teacher.", hint: "What confused you? What was hard? What trick did you discover yourself? That's the best lesson to teach — because you really understand it." },
+    ],
   },
 ];
 
