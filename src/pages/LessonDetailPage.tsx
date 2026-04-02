@@ -227,6 +227,11 @@ export default function LessonDetailPage() {
               <ExternalLink size={16} /> Open Scratch Editor
             </a>
           </div>
+
+          {/* Bonus Challenges */}
+          {lesson.bonusChallenges && lesson.bonusChallenges.length > 0 && (
+            <BonusChallenges challenges={lesson.bonusChallenges} />
+          )}
         </motion.div>
       </div>
     </div>
