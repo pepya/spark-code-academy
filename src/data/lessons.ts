@@ -12,6 +12,13 @@ export interface Quiz {
   correctIndex: number;
 }
 
+export interface BonusChallenge {
+  level: "tricky" | "hard" | "super-hard" | "very-hard" | "legend";
+  title: string;
+  description: string;
+  hint: string;
+}
+
 export interface Lesson {
   id: string;
   title: string;
@@ -22,6 +29,7 @@ export interface Lesson {
   scratchUrl: string;
   quiz?: Quiz;
   badgeId: string;
+  bonusChallenges?: BonusChallenge[];
 }
 
 export interface Badge {
