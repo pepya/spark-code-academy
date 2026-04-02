@@ -260,6 +260,11 @@ export const lessons: Lesson[] = [
     scratchUrl: "https://www.scratchjr.org/",
     quiz: { question: "What's the difference between a Repeat loop and a Forever loop?", options: ["Repeat is faster", "Forever runs a set number of times", "Repeat runs a set number of times, Forever never stops", "There is no difference"], correctIndex: 2 },
     badgeId: "loop-master",
+    bonusChallenges: [
+      { level: "tricky", title: "The Perfect Square 🟦", description: "Using ONLY move and turn blocks inside a repeat loop, make a character trace a perfect square path. It must end up exactly where it started. How many moves and turns do you need? What number of turns makes a right angle?", hint: "A square has 4 sides and 4 corners. What does that tell you about your repeat number?" },
+      { level: "hard", title: "Synchronized Swimming 🏊", description: "Add 4 characters to the stage. All 4 must move in perfect sync — same direction, same speed, same moment. But each one must start in a different corner of the stage. They move together like a swimming team formation.", hint: "You need 4 separate scripts all triggered at the same time. Think about what makes them all start simultaneously." },
+      { level: "super-hard", title: "The Infinity Machine ♾️", description: "Build a scene with 5 characters, each running a different forever loop. The challenge: they must all feel connected — like parts of a single machine working together. A cog turning, a lever moving, a light flashing, a dial spinning, a wheel rotating. Design the machine on paper first.", hint: "Think about a clock — every part moves at a different speed but they all work together. What's your machine?" },
+    ],
   },
   {
     id: "scratchjr-week4",
