@@ -84,6 +84,25 @@ export default function ParentsPage() {
           </a>
         </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="bg-accent/10 rounded-2xl p-8 border border-accent/30 text-center mt-8"
+        >
+          <span className="text-4xl block mb-3">🧰</span>
+          <h3 className="font-display text-xl font-bold text-foreground mb-2">Parent & Teacher Resources</h3>
+          <p className="text-muted-foreground max-w-lg mx-auto mb-4">
+            Weekly progress checklists, teacher mindset phrases, and common problem fixes to support your child.
+          </p>
+          <a
+            href="/parent-resources"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-display font-bold hover:opacity-90 transition-opacity"
+          >
+            View Resources →
+          </a>
+        </motion.div>
+
         <div className="mt-12 text-center">
           <h3 className="font-display text-xl font-bold text-foreground mb-2">What is Scratch?</h3>
           <p className="text-muted-foreground max-w-lg mx-auto mb-4">

@@ -29,6 +29,7 @@ const App = () => (
           <Route path="/badges" element={<BadgesPage />} />
           <Route path="/parents" element={<ParentsPage />} />
           <Route path="/lesson-scripts" element={<LessonScriptsPage />} />
+          <Route path="/parent-resources" element={<ParentResourcesPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
