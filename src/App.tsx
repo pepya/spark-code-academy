@@ -31,6 +31,7 @@ const App = () => (
           <Route path="/parents" element={<ParentsPage />} />
           <Route path="/lesson-scripts" element={<LessonScriptsPage />} />
           <Route path="/parent-resources" element={<ParentResourcesPage />} />
+          <Route path="/block-flashcards" element={<BlockFlashcardsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -9,6 +9,7 @@ const navItems = [
   { to: "/badges", label: "Badges", icon: Award },
   { to: "/parents", label: "For Parents", icon: Users },
   { to: "/lesson-scripts", label: "Lesson Scripts", icon: ClipboardList },
+  { to: "/block-flashcards", label: "Flashcards", icon: Layers },
 ];
 
 export default function Navbar() {
