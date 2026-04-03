@@ -11,6 +11,7 @@ import BadgesPage from "@/pages/BadgesPage";
 import ParentsPage from "@/pages/ParentsPage";
 import LessonScriptsPage from "@/pages/LessonScriptsPage";
 import ParentResourcesPage from "@/pages/ParentResourcesPage";
+import BlockFlashcardsPage from "@/pages/BlockFlashcardsPage";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
