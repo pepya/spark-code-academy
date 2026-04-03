@@ -59,7 +59,7 @@ export default function AppSidebar() {
         </SidebarGroup>
 
         {/* For Kids */}
-        <SidebarGroup defaultOpen={kidsOpen || (!kidsOpen && !parentsOpen)}>
+        <SidebarGroup>
           <SidebarGroupLabel>
             <GraduationCap className="mr-2 h-4 w-4" />
             {!collapsed && t("nav.forKids")}
