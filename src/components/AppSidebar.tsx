@@ -81,7 +81,7 @@ export default function AppSidebar() {
         </SidebarGroup>
 
         {/* For Parents */}
-        <SidebarGroup defaultOpen={parentsOpen}>
+        <SidebarGroup>
           <SidebarGroupLabel>
             <Users className="mr-2 h-4 w-4" />
             {!collapsed && t("nav.forParents")}
