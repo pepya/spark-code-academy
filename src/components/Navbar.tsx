@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { BookOpen, Home, Award, Users, Menu, X, ClipboardList } from "lucide-react";
+import { BookOpen, Home, Award, Users, Menu, X, ClipboardList, Layers } from "lucide-react";
 import { useState } from "react";
 
 const navItems = [
