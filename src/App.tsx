@@ -11,6 +11,7 @@ import BadgesPage from "@/pages/BadgesPage";
 import ParentsPage from "@/pages/ParentsPage";
 import LessonScriptsPage from "@/pages/LessonScriptsPage";
 import ParentResourcesPage from "@/pages/ParentResourcesPage";
+import BlockFlashcardsPage from "@/pages/BlockFlashcardsPage";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/parents" element={<ParentsPage />} />
           <Route path="/lesson-scripts" element={<LessonScriptsPage />} />
           <Route path="/parent-resources" element={<ParentResourcesPage />} />
+          <Route path="/block-flashcards" element={<BlockFlashcardsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
