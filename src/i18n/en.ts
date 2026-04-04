@@ -11,9 +11,10 @@ const en = {
     resources: "Resources",
   },
   home: {
-    heroTitle: "Scratch for Juniors",
-    heroSubtitle: "Learn to code by creating games, animations, and stories! Fun lessons for kids ages 6–12.",
-    startLearning: "Start Learning!",
+    heroTitle: "CodyLab Juniors",
+    heroSubtitle: "Turn Screen Time into Creative Time. Coding for the Next Generation of Innovators.",
+    startLearning: "Start My First Project! 🚀",
+    disclaimer: "Scratch is a project of the Scratch Foundation in collaboration with the Lifelong Kindergarten Group at the MIT Media Lab. CodyLab Juniors is an independent resource and is not affiliated with, or endorsed by, the Scratch Foundation. Created by Petya Lozanova.",
     welcomeBack: "Welcome back!",
     completedOf: "You've completed {{completed}} of {{total}} lessons",
     progress: "Progress",

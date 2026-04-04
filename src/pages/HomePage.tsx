@@ -191,7 +191,8 @@ export default function HomePage() {
       <footer className="bg-foreground text-primary-foreground py-8">
         <div className="container text-center">
           <p className="font-display font-bold text-lg mb-1">🐱 {t("home.heroTitle")}</p>
-          <p className="text-sm opacity-70">{t("home.footer")}</p>
+          <p className="text-sm opacity-70 mb-4">{t("home.footer")}</p>
+          <p className="text-xs opacity-50 max-w-2xl mx-auto">{t("home.disclaimer")}</p>
         </div>
       </footer>
     </div>
