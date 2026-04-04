@@ -10,9 +10,10 @@ export default function LessonDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const lesson = lessons.find((l) => l.id === id);
-  const { isLessonCompleted, completeLesson, hasBadge } = useProgress();
+  const { isLessonCompleted, completeLesson, hasBadge, setStep, getLessonStep } = useProgress();
 
-  const [currentStep, setCurrentStep] = useState(0);
+  const savedStep = lesson ? getLessonStep(lesson.id) : 0;
+  const [currentStep, setCurrentStep] = useState(savedStep);
   const [quizAnswer, setQuizAnswer] = useState<number | null>(null);
   const [showBadge, setShowBadge] = useState(false);
 
@@ -41,15 +42,24 @@ export default function LessonDetailPage() {
     }
   };
 
+  const handleStepChange = (step: number) => {
+    setCurrentStep(step);
+    setStep(lesson.id, step);
+  };
+
   const handleNext = () => {
     if (isLastStep && lesson.quiz) {
-      setCurrentStep(lesson.steps.length); // show quiz
+      handleStepChange(lesson.steps.length);
     } else if (isLastStep) {
       handleComplete();
     } else {
-      setCurrentStep((s) => s + 1);
+      handleStepChange(currentStep + 1);
     }
   };
+
+  // Find next lesson
+  const currentIndex = lessons.findIndex(l => l.id === lesson.id);
+  const nextLesson = currentIndex < lessons.length - 1 ? lessons[currentIndex + 1] : null;
 
   return (
     <div className="min-h-screen py-8">
@@ -85,7 +95,7 @@ export default function LessonDetailPage() {
         </button>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-4 mb-4">
             <span className="text-5xl">{lesson.icon}</span>
             <div>
               <span className={`text-xs font-bold uppercase tracking-wide px-2 py-1 rounded-full ${
@@ -99,9 +109,17 @@ export default function LessonDetailPage() {
             </div>
           </div>
 
+          {/* Hook teaser */}
+          <p className="text-primary font-semibold italic text-lg mb-2">{lesson.hook}</p>
+
+          {/* You'll Build badge */}
+          <div className="inline-flex items-center gap-2 text-sm bg-muted/60 rounded-lg px-3 py-1.5 mb-6">
+            <span className="font-bold">🛠️ You'll build:</span> {lesson.youllBuild}
+          </div>
+
           {completed && (
             <div className="flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-xl mb-6 font-semibold text-sm">
-              <CheckCircle size={18} /> You've completed this lesson!
+              <CheckCircle size={18} /> You've completed this lesson! ✨
             </div>
           )}
 
@@ -126,7 +144,7 @@ export default function LessonDetailPage() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.3 }}
-                className="bg-card rounded-2xl p-8 border border-border shadow-sm mb-6"
+                className="bg-card rounded-2xl p-8 border border-border shadow-sm mb-4"
               >
                 <p className="text-sm text-muted-foreground font-bold mb-2">
                   Step {currentStep + 1} of {lesson.steps.length}
@@ -140,12 +158,11 @@ export default function LessonDetailPage() {
               </motion.div>
             </AnimatePresence>
           ) : (
-            /* Quiz */
             lesson.quiz && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-card rounded-2xl p-8 border border-border shadow-sm mb-6"
+                className="bg-card rounded-2xl p-8 border border-border shadow-sm mb-4"
               >
                 <p className="text-sm text-muted-foreground font-bold mb-2">🧠 Quick Quiz</p>
                 <h2 className="font-display text-xl font-bold text-foreground mb-6">{lesson.quiz.question}</h2>
@@ -186,12 +203,26 @@ export default function LessonDetailPage() {
             )
           )}
 
+          {/* Scratch Editor link inline */}
+          {!showQuiz && (
+            <div className="mb-6">
+              <a
+                href={lesson.scratchUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-accent-foreground bg-accent/80 hover:bg-accent px-4 py-2 rounded-xl transition-colors"
+              >
+                <ExternalLink size={14} /> Open in Scratch Editor
+              </a>
+            </div>
+          )}
+
           {/* Navigation */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mb-8">
             <button
               onClick={() => {
-                if (showQuiz) setCurrentStep(lesson.steps.length - 1);
-                else if (currentStep > 0) setCurrentStep((s) => s - 1);
+                if (showQuiz) handleStepChange(lesson.steps.length - 1);
+                else if (currentStep > 0) handleStepChange(currentStep - 1);
               }}
               disabled={currentStep === 0 && !showQuiz}
               className="flex items-center gap-2 px-5 py-3 rounded-xl font-display font-bold text-sm bg-card border border-border text-muted-foreground hover:text-foreground disabled:opacity-30 transition-colors"
@@ -215,18 +246,20 @@ export default function LessonDetailPage() {
             )}
           </div>
 
-          {/* Scratch link */}
-          <div className="mt-8 bg-accent/20 rounded-2xl p-6 text-center">
-            <p className="font-display font-bold text-foreground mb-3">Try it in Scratch! 🐱</p>
-            <a
-              href={lesson.scratchUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-accent text-accent-foreground font-display font-bold px-6 py-3 rounded-xl hover:scale-105 transition-transform"
-            >
-              <ExternalLink size={16} /> Open Scratch Editor
-            </a>
-          </div>
+          {/* Next lesson suggestion */}
+          {completed && nextLesson && (
+            <Link to={`/lessons/${nextLesson.id}`} className="block group mb-8">
+              <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-secondary/10 border-2 border-primary/20 rounded-2xl p-4 flex items-center gap-4 hover:border-primary/50 transition-all">
+                <span className="text-3xl">{nextLesson.icon}</span>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-bold text-primary uppercase tracking-wide">⭐ Up Next</p>
+                  <h3 className="font-display font-bold text-foreground truncate">{nextLesson.title}</h3>
+                  <p className="text-sm text-muted-foreground italic">{nextLesson.hook}</p>
+                </div>
+                <ArrowRight size={18} className="text-primary group-hover:translate-x-1 transition-transform shrink-0" />
+              </div>
+            </Link>
+          )}
 
           {/* Bonus Challenges */}
           {lesson.bonusChallenges && lesson.bonusChallenges.length > 0 && (
