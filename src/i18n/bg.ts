@@ -11,9 +11,10 @@ const bg = {
     resources: "Ресурси",
   },
   home: {
-    heroTitle: "Scratch за малки",
-    heroSubtitle: "Научете се да програмирате, като създавате игри, анимации и истории! Забавни уроци за деца на 6–12 години.",
-    startLearning: "Започни да учиш!",
+    heroTitle: "CodyLab Juniors",
+    heroSubtitle: "Превърнете екранното време в креативно време. Програмиране за следващото поколение иноватори.",
+    startLearning: "Започни първия си проект! 🚀",
+    disclaimer: "Scratch е проект на Scratch Foundation в сътрудничество с Lifelong Kindergarten Group в MIT Media Lab. CodyLab Juniors е независим ресурс и не е свързан с, или одобрен от Scratch Foundation. Създадено от Петя Лозанова.",
     welcomeBack: "Добре дошли отново!",
     completedOf: "Завършихте {{completed}} от {{total}} урока",
     progress: "Прогрес",
