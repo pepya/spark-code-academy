@@ -24,12 +24,18 @@ export interface Lesson {
   title: string;
   level: Level;
   description: string;
+  hook: string;
+  youllBuild: string;
+  estimatedMinutes: number;
+  funRating: 1 | 2 | 3;
   icon: string;
   steps: LessonStep[];
   scratchUrl: string;
   quiz?: Quiz;
   badgeId: string;
   bonusChallenges?: BonusChallenge[];
+  isNew?: boolean;
+  module?: string;
 }
 
 export interface Badge {
@@ -38,6 +44,14 @@ export interface Badge {
   description: string;
   icon: string;
   color: string;
+}
+
+export interface LessonModule {
+  id: string;
+  title: string;
+  emoji: string;
+  description: string;
+  lessonIds: string[];
 }
 
 export const badges: Badge[] = [
@@ -58,13 +72,84 @@ export const badges: Badge[] = [
   { id: "graduate", title: "Graduate", description: "Completed the full ScratchJr program!", icon: "🎓", color: "primary" },
 ];
 
+export const lessonModules: LessonModule[] = [
+  {
+    id: "scratch-basics",
+    title: "Scratch Basics",
+    emoji: "🐱",
+    description: "Meet Scratch and learn the fundamentals",
+    lessonIds: ["hello-scratch", "move-scratch-cat", "draw-with-code"],
+  },
+  {
+    id: "scratch-create",
+    title: "Create & Play",
+    emoji: "🎮",
+    description: "Make music, stories, and games",
+    lessonIds: ["make-music", "interactive-story", "first-game"],
+  },
+  {
+    id: "scratch-advanced",
+    title: "Level Up",
+    emoji: "🚀",
+    description: "Master animations, loops, and advanced blocks",
+    lessonIds: ["animations", "loops-conditions", "advanced-blocks"],
+  },
+  {
+    id: "scratchjr-week1",
+    title: "Week 1: Hello, ScratchJr!",
+    emoji: "🛝",
+    description: "Explore the app, draw characters, and build your first project",
+    lessonIds: ["scratchjr-week1"],
+  },
+  {
+    id: "scratchjr-week2",
+    title: "Week 2: Tell a Story!",
+    emoji: "📖",
+    description: "Create multi-page stories with dialogue and timing",
+    lessonIds: ["scratchjr-week2"],
+  },
+  {
+    id: "scratchjr-week3",
+    title: "Week 3: Loops & Repeats!",
+    emoji: "🔁",
+    description: "Discover the power of loops and pattern art",
+    lessonIds: ["scratchjr-week3"],
+  },
+  {
+    id: "scratchjr-week4",
+    title: "Week 4: Messages & Games!",
+    emoji: "📬",
+    description: "Learn event-driven programming and build games",
+    lessonIds: ["scratchjr-week4"],
+  },
+  {
+    id: "scratchjr-week5",
+    title: "Week 5: Sound & Music!",
+    emoji: "🎵",
+    description: "Add sounds, record your voice, and create music videos",
+    lessonIds: ["scratchjr-week5"],
+  },
+  {
+    id: "scratchjr-week6",
+    title: "Week 6: Grand Finale!",
+    emoji: "🎓",
+    description: "Design, build, and present your own complete project",
+    lessonIds: ["scratchjr-week6"],
+  },
+];
+
 export const lessons: Lesson[] = [
   {
     id: "hello-scratch",
     title: "Hello, Scratch!",
     level: "beginner",
     description: "Learn what Scratch is and how to use it. Meet the Scratch Cat!",
+    hook: "Can you make a cat talk? Let's find out! 🐱",
+    youllBuild: "Your very first Scratch project",
+    estimatedMinutes: 10,
+    funRating: 2,
     icon: "🐱",
+    module: "scratch-basics",
     steps: [
       { title: "What is Scratch?", description: "Scratch is a free programming language where you can create stories, games, and animations. It uses colorful blocks that snap together like puzzle pieces!" },
       { title: "Meet Scratch Cat", description: "When you open Scratch, you'll see the Scratch Cat. This is your first sprite — a character you can program!" },
@@ -80,7 +165,12 @@ export const lessons: Lesson[] = [
     title: "Make Scratch Cat Move!",
     level: "beginner",
     description: "Use motion blocks to make the cat walk, jump, and glide across the screen.",
+    hook: "Make Scratch Cat dance across the stage! 💃",
+    youllBuild: "A dancing cat animation",
+    estimatedMinutes: 15,
+    funRating: 3,
     icon: "➡️",
+    module: "scratch-basics",
     steps: [
       { title: "Motion Blocks", description: "Click on the blue 'Motion' category to find movement blocks." },
       { title: "Move 10 Steps", description: "Drag the 'move 10 steps' block to the coding area and click it. Watch the cat move!" },
@@ -96,7 +186,12 @@ export const lessons: Lesson[] = [
     title: "Draw with Code!",
     level: "beginner",
     description: "Use the Pen extension to draw colorful shapes and patterns.",
+    hook: "Turn code into art — draw rainbows and stars! 🌈",
+    youllBuild: "Colorful shape patterns",
+    estimatedMinutes: 15,
+    funRating: 3,
     icon: "✏️",
+    module: "scratch-basics",
     steps: [
       { title: "Add the Pen Extension", description: "Click the 'Add Extension' button and select 'Pen' to add drawing blocks." },
       { title: "Pen Down", description: "Use 'pen down' to start drawing. The sprite will leave a trail wherever it goes!" },
@@ -111,7 +206,12 @@ export const lessons: Lesson[] = [
     title: "Make Music!",
     level: "intermediate",
     description: "Create melodies and beats using sound blocks and the music extension.",
+    hook: "Become a DJ — mix beats with code! 🎧",
+    youllBuild: "Your own melody and beat",
+    estimatedMinutes: 20,
+    funRating: 3,
     icon: "🎶",
+    module: "scratch-create",
     steps: [
       { title: "Sound Blocks", description: "Find the 'Sound' category and try the 'play sound' block." },
       { title: "Music Extension", description: "Add the 'Music' extension to get instrument and drum blocks." },
@@ -127,7 +227,12 @@ export const lessons: Lesson[] = [
     title: "Interactive Story",
     level: "intermediate",
     description: "Create a story where characters talk and the reader makes choices!",
+    hook: "Write a story where YOU decide what happens! 📖✨",
+    youllBuild: "A choose-your-own-adventure story",
+    estimatedMinutes: 25,
+    funRating: 3,
     icon: "📚",
+    module: "scratch-create",
     steps: [
       { title: "Add Characters", description: "Add new sprites for your story characters from the sprite library." },
       { title: "Make Them Talk", description: "Use 'say' and 'think' blocks from the Looks category." },
@@ -142,7 +247,12 @@ export const lessons: Lesson[] = [
     title: "Build a Game!",
     level: "intermediate",
     description: "Create a simple catching game with score and lives.",
+    hook: "Build a game your friends will want to play! 🎮🔥",
+    youllBuild: "A catching game with score",
+    estimatedMinutes: 30,
+    funRating: 3,
     icon: "🎮",
+    module: "scratch-create",
     steps: [
       { title: "Set Up the Player", description: "Create a sprite that the player controls with arrow keys." },
       { title: "Add Falling Objects", description: "Create objects that fall from the top of the screen." },
@@ -158,7 +268,12 @@ export const lessons: Lesson[] = [
     title: "Cool Animations",
     level: "advanced",
     description: "Learn to create smooth animations with costumes and effects.",
+    hook: "Make your own cartoon — frame by frame! 🎬",
+    youllBuild: "An animated short cartoon",
+    estimatedMinutes: 25,
+    funRating: 3,
     icon: "🎬",
+    module: "scratch-advanced",
     steps: [
       { title: "Costume Animation", description: "Switch between costumes quickly to create animation, like a flipbook!" },
       { title: "Glide and Slide", description: "Use glide blocks for smooth movement between positions." },
@@ -173,7 +288,12 @@ export const lessons: Lesson[] = [
     title: "Loops & Conditions",
     level: "advanced",
     description: "Master repeat blocks, forever loops, and if-then-else logic.",
+    hook: "Teach your computer to make decisions! 🧠",
+    youllBuild: "Smart programs with logic",
+    estimatedMinutes: 20,
+    funRating: 2,
     icon: "🔄",
+    module: "scratch-advanced",
     steps: [
       { title: "Repeat Blocks", description: "The 'repeat' block runs code multiple times. Great for patterns!" },
       { title: "Forever Loops", description: "'Forever' keeps running code non-stop — perfect for games." },
@@ -189,7 +309,12 @@ export const lessons: Lesson[] = [
     title: "Advanced Blocks",
     level: "advanced",
     description: "Explore cloning, custom blocks, and broadcasting messages.",
+    hook: "Unlock secret superpowers — clones, broadcasts, and more! 🦸",
+    youllBuild: "A project using clones and broadcasts",
+    estimatedMinutes: 25,
+    funRating: 2,
     icon: "🚀",
+    module: "scratch-advanced",
     steps: [
       { title: "Cloning", description: "Create copies of sprites using 'create clone' — great for bullets, enemies, and particles!" },
       { title: "Custom Blocks", description: "Make your own blocks to organize code and avoid repetition." },
@@ -205,7 +330,13 @@ export const lessons: Lesson[] = [
     title: "ScratchJr: Hello, ScratchJr!",
     level: "beginner",
     description: "Explore the ScratchJr app, draw characters, learn motion blocks, triggers, and looks blocks — then build your first project!",
+    hook: "Your tablet is now a coding playground! Ready to explore? 🛝",
+    youllBuild: "Your first ScratchJr character and project",
+    estimatedMinutes: 50,
+    funRating: 3,
     icon: "🐱",
+    module: "scratchjr-week1",
+    isNew: true,
     steps: [
       { title: "Day 1: Meet the Playground 🛝", description: "Open ScratchJr and explore together for 5 minutes. Find the Stage (big area), Blocks (left side), and Characters (bottom). Tap a character to select it, then open the Paint tool 🎨 to draw YOUR OWN character. Give it a name and save your project 💾. Challenge: Name your character and show a grown-up!" },
       { title: "Day 2: Move It! Arrow Blocks 🏃", description: "Find the BLUE motion blocks — these make characters move! Drag a 'move right' block to the script area and tap it. Try adding left, up, down blocks and chain them together. Use bigger numbers for faster movement, smaller for slower. Challenge: Make a 5-block dance routine — Right → Up → Left → Down → Spin!" },
@@ -227,7 +358,13 @@ export const lessons: Lesson[] = [
     title: "ScratchJr: Tell a Story!",
     level: "beginner",
     description: "Learn to create multi-page stories with dialogue, timing, custom backgrounds, and page transitions.",
+    hook: "Become an author — your characters come to life! ✍️",
+    youllBuild: "A 3-page animated storybook",
+    estimatedMinutes: 50,
+    funRating: 3,
     icon: "📖",
+    module: "scratchjr-week2",
+    isNew: true,
     steps: [
       { title: "Day 1: Scene 1 & Scene 2 — Pages! 🎭", description: "Tap the '+' button to add a new page — now you have 2 scenes! Give Page 1 a home background and Page 2 a forest or space. Add a character to each page, then find the orange 'go to page' block and connect it at the end of Page 1's script. Press play — does it jump? Challenge: Make a 3-page story!" },
       { title: "Day 2: Characters Talking! 💬", description: "Put 2 characters on the same stage. Act out your conversation out loud first — who says what? Add 'say' blocks to Character 1, then add a WAIT block before Character 2 speaks so they take turns! Challenge: Write a 4-line conversation. Make them greet each other and say goodbye!" },
@@ -249,7 +386,13 @@ export const lessons: Lesson[] = [
     title: "ScratchJr: Loops & Repeats!",
     level: "intermediate",
     description: "Discover the power of loops — repeat blocks, forever loops, dance choreography, and pattern art!",
+    hook: "Why do something once when you can loop it forever? 🌀",
+    youllBuild: "A dance show with loop choreography",
+    estimatedMinutes: 50,
+    funRating: 3,
     icon: "🔁",
+    module: "scratchjr-week3",
+    isNew: true,
     steps: [
       { title: "Day 1: Why Repeat? The Loop Idea 🤔", description: "Physical warm-up: clap 5 times — that's a loop! 👏 Find the orange REPEAT block in ScratchJr and put a move block INSIDE it. Set repeat to 5 — the character walks 5 steps! Compare: a loop vs 5 separate blocks — which is easier? Challenge: Make a loop that runs 10 times!" },
       { title: "Day 2: Forever Loop! 🌀", description: "Find the FOREVER loop — it has no number, it never stops! Put 'move right, move left' inside — the character bounces forever! Try grow + shrink inside forever for flapping wings. Make the sun spin forever with a turn block. Stop it with the red button! Challenge: Two characters with DIFFERENT forever loops at the same time!" },
@@ -271,7 +414,13 @@ export const lessons: Lesson[] = [
     title: "ScratchJr: Messages & Games!",
     level: "intermediate",
     description: "Learn event-driven programming with messages, chain reactions, tap triggers, and build your first game!",
+    hook: "Send secret messages between characters! 📬✨",
+    youllBuild: "An interactive game with messages",
+    estimatedMinutes: 50,
+    funRating: 3,
     icon: "📬",
+    module: "scratchjr-week4",
+    isNew: true,
     steps: [
       { title: "Day 1: What's a Message? 📬", description: "Real life warm-up: you shout 'GO!' → friend starts running. That's a message! Find SEND and RECEIVE message blocks. Character A sends a message on the green flag, Character B receives it and moves. Make sure the same colour message matches! Challenge: A sends → B grows HUGE, then B sends back → A spins!" },
       { title: "Day 2: Chain Reactions! ⛓️", description: "Imagine falling dominoes — A hits B hits C! Character A: flag → action → SEND orange message. Character B: RECEIVE orange → action → SEND blue message. Character C: RECEIVE blue → action → SEND green message. Watch the chain reaction! Challenge: Add a 4th character!" },
@@ -293,7 +442,13 @@ export const lessons: Lesson[] = [
     title: "ScratchJr: Sound & Music!",
     level: "intermediate",
     description: "Add sound effects, record your voice, build tap instruments, and sync sound with motion!",
+    hook: "Record your voice and make characters sing! 🎤",
+    youllBuild: "A music video with your own soundtrack",
+    estimatedMinutes: 50,
+    funRating: 3,
     icon: "🎵",
+    module: "scratchjr-week5",
+    isNew: true,
     steps: [
       { title: "Day 1: Make Some Noise! 🔊", description: "Find the GREEN sound blocks. Add a 'pop' sound when a character is tapped. Try boing, meow, bell — which is your favourite? Trigger sounds at different moments: start, on tap, after move. Close your eyes and listen — does it feel like a scene? Challenge: 3 characters, 3 different sounds!" },
       { title: "Day 2: Record Your Voice! 🎤", description: "Tap the microphone icon in the sound blocks area. Record: 'Hello! I am [YOUR NAME]!' loud and clear! Attach it to your character — tap and hear yourself! Try a robot voice, a whisper, a loud monster voice 👾. Challenge: Record a narration for your Week 2 story — give it a real voiceover! 🎬" },
@@ -315,7 +470,13 @@ export const lessons: Lesson[] = [
     title: "ScratchJr: Grand Finale!",
     level: "advanced",
     description: "Design, build, polish, and present your own complete ScratchJr project — it's graduation week!",
+    hook: "It's YOUR show — create anything you can imagine! 🌟",
+    youllBuild: "Your masterpiece graduation project",
+    estimatedMinutes: 60,
+    funRating: 3,
     icon: "🎓",
+    module: "scratchjr-week6",
+    isNew: true,
     steps: [
       { title: "Day 1: Big Idea Planning Day! 💡", description: "Look back at all 5 weeks — what was your FAVOURITE thing? Brainstorm: story? game? music video? something totally new? Draw your plan on paper: characters, scenes, what happens. Write: 'My project will…' and finish the sentence 3 ways. Challenge: Write down 3 things your final project MUST include!" },
       { title: "Day 2: Build — Art Day! 🎨", description: "Open ScratchJr and start a brand new project. Draw ALL your characters in the paint tool — take your time! Create all your backgrounds for each scene. Set up all your pages in the right order. NO CODE TODAY — just art. Make it beautiful first! 🌟" },
@@ -335,3 +496,13 @@ export const lessons: Lesson[] = [
 ];
 
 export const getLessonsByLevel = (level: Level) => lessons.filter((l) => l.level === level);
+
+export const getLessonsByModule = (moduleId: string) => {
+  const mod = lessonModules.find((m) => m.id === moduleId);
+  if (!mod) return [];
+  return mod.lessonIds.map((id) => lessons.find((l) => l.id === id)).filter(Boolean) as Lesson[];
+};
+
+export const getNextLesson = (completedIds: string[]): Lesson | undefined => {
+  return lessons.find((l) => !completedIds.includes(l.id));
+};
