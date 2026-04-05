@@ -293,7 +293,7 @@ export const lessons: Lesson[] = [
     estimatedMinutes: 50,
     funRating: 3,
     icon: "🐱",
-    module: "scratchjr-week1",
+    module: "scratch-basics",
     isNew: true,
     steps: [
       { title: "Day 1: Meet the Playground 🛝", description: "Open ScratchJr and explore together for 5 minutes. Find the Stage (big area), Blocks (left side), and Characters (bottom). Tap a character to select it, then open the Paint tool 🎨 to draw YOUR OWN character. Give it a name and save your project 💾. Challenge: Name your character and show a grown-up!" },
@@ -321,7 +321,7 @@ export const lessons: Lesson[] = [
     estimatedMinutes: 50,
     funRating: 3,
     icon: "📖",
-    module: "scratchjr-week2",
+    module: "scratch-basics",
     isNew: true,
     steps: [
       { title: "Day 1: Scene 1 & Scene 2 — Pages! 🎭", description: "Tap the '+' button to add a new page — now you have 2 scenes! Give Page 1 a home background and Page 2 a forest or space. Add a character to each page, then find the orange 'go to page' block and connect it at the end of Page 1's script. Press play — does it jump? Challenge: Make a 3-page story!" },
@@ -349,7 +349,7 @@ export const lessons: Lesson[] = [
     estimatedMinutes: 50,
     funRating: 3,
     icon: "🔁",
-    module: "scratchjr-week3",
+    module: "scratch-create",
     isNew: true,
     steps: [
       { title: "Day 1: Why Repeat? The Loop Idea 🤔", description: "Physical warm-up: clap 5 times — that's a loop! 👏 Find the orange REPEAT block in ScratchJr and put a move block INSIDE it. Set repeat to 5 — the character walks 5 steps! Compare: a loop vs 5 separate blocks — which is easier? Challenge: Make a loop that runs 10 times!" },
@@ -377,7 +377,7 @@ export const lessons: Lesson[] = [
     estimatedMinutes: 50,
     funRating: 3,
     icon: "📬",
-    module: "scratchjr-week4",
+    module: "scratch-create",
     isNew: true,
     steps: [
       { title: "Day 1: What's a Message? 📬", description: "Real life warm-up: you shout 'GO!' → friend starts running. That's a message! Find SEND and RECEIVE message blocks. Character A sends a message on the green flag, Character B receives it and moves. Make sure the same colour message matches! Challenge: A sends → B grows HUGE, then B sends back → A spins!" },
@@ -405,7 +405,7 @@ export const lessons: Lesson[] = [
     estimatedMinutes: 50,
     funRating: 3,
     icon: "🎵",
-    module: "scratchjr-week5",
+    module: "scratch-create",
     isNew: true,
     steps: [
       { title: "Day 1: Make Some Noise! 🔊", description: "Find the GREEN sound blocks. Add a 'pop' sound when a character is tapped. Try boing, meow, bell — which is your favourite? Trigger sounds at different moments: start, on tap, after move. Close your eyes and listen — does it feel like a scene? Challenge: 3 characters, 3 different sounds!" },
@@ -433,7 +433,7 @@ export const lessons: Lesson[] = [
     estimatedMinutes: 60,
     funRating: 3,
     icon: "🎓",
-    module: "scratchjr-week6",
+    module: "scratch-advanced",
     isNew: true,
     steps: [
       { title: "Day 1: Big Idea Planning Day! 💡", description: "Look back at all 5 weeks — what was your FAVOURITE thing? Brainstorm: story? game? music video? something totally new? Draw your plan on paper: characters, scenes, what happens. Write: 'My project will…' and finish the sentence 3 ways. Challenge: Write down 3 things your final project MUST include!" },
