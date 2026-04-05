@@ -5,6 +5,7 @@ export interface BlockCard {
   description: string;
   tip: string;
   note: string;
+  hasNumber?: boolean;
 }
 
 export interface BlockCategory {
