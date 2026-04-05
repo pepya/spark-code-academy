@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Printer, Lightbulb, Info, Filter } from "lucide-react";
+import BlockShape from "@/components/BlockShape";
 import { blockCategories, BlockCard, BlockCategory } from "@/data/blockFlashcards";
 
 function FlashCard({ block, category }: { block: BlockCard; category: BlockCategory }) {
@@ -25,8 +26,9 @@ function FlashCard({ block, category }: { block: BlockCard; category: BlockCateg
           className={`absolute inset-0 rounded-2xl border-2 ${category.borderColor} ${category.color} p-5 flex flex-col items-center justify-center text-center backface-hidden`}
           style={{ backfaceVisibility: "hidden" }}
         >
-          <span className="text-5xl mb-3">{block.emoji}</span>
-          <h3 className={`font-display text-xl font-bold ${category.textColor}`}>{block.name}</h3>
+          <div className="mb-3 transform scale-125">
+            <BlockShape emoji={block.emoji} name={block.name} category={category} hasNumber={block.hasNumber} />
+          </div>
           <p className="text-xs text-muted-foreground mt-2">{block.fullName}</p>
           <p className="text-xs text-muted-foreground mt-3 italic">Tap to flip →</p>
         </div>

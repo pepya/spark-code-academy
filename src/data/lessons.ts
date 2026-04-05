@@ -44,6 +44,7 @@ export interface Badge {
   description: string;
   icon: string;
   color: string;
+  module: "scratch-basics" | "scratch-create" | "scratch-advanced";
 }
 
 export interface LessonModule {
@@ -55,21 +56,21 @@ export interface LessonModule {
 }
 
 export const badges: Badge[] = [
-  { id: "first-steps", title: "First Steps", description: "Complete your first lesson!", icon: "🐣", color: "accent" },
-  { id: "mover", title: "Mover", description: "Make Scratch Cat move!", icon: "🏃", color: "secondary" },
-  { id: "artist", title: "Artist", description: "Draw with code!", icon: "🎨", color: "coral" },
-  { id: "musician", title: "Musician", description: "Make music with Scratch!", icon: "🎵", color: "purple" },
-  { id: "storyteller", title: "Storyteller", description: "Create an interactive story!", icon: "📖", color: "primary" },
-  { id: "game-maker", title: "Game Maker", description: "Build your first game!", icon: "🎮", color: "mint" },
-  { id: "animator", title: "Animator", description: "Create animations!", icon: "🎬", color: "peach" },
-  { id: "coder", title: "Coder", description: "Use loops and conditions!", icon: "💻", color: "sky" },
-  { id: "explorer", title: "Explorer", description: "Explore advanced blocks!", icon: "🚀", color: "lavender" },
-  { id: "playground-pro", title: "Playground Pro", description: "Explored the ScratchJr playground!", icon: "🛝", color: "accent" },
-  { id: "story-builder", title: "Story Builder", description: "Built a multi-page story!", icon: "📖", color: "coral" },
-  { id: "loop-master", title: "Loop Master", description: "Mastered loops and repeats!", icon: "🔁", color: "mint" },
-  { id: "messenger", title: "Messenger", description: "Used messages between characters!", icon: "📬", color: "purple" },
-  { id: "sound-designer", title: "Sound Designer", description: "Added sounds and music!", icon: "🎵", color: "peach" },
-  { id: "graduate", title: "Graduate", description: "Completed the full ScratchJr program!", icon: "🎓", color: "primary" },
+  { id: "first-steps", title: "First Steps", description: "Complete your first lesson!", icon: "🐣", color: "accent", module: "scratch-basics" },
+  { id: "mover", title: "Mover", description: "Make Scratch Cat move!", icon: "🏃", color: "secondary", module: "scratch-basics" },
+  { id: "artist", title: "Artist", description: "Draw with code!", icon: "🎨", color: "coral", module: "scratch-basics" },
+  { id: "playground-pro", title: "Playground Pro", description: "Explored the ScratchJr playground!", icon: "🛝", color: "accent", module: "scratch-basics" },
+  { id: "story-builder", title: "Story Builder", description: "Built a multi-page story!", icon: "📖", color: "coral", module: "scratch-basics" },
+  { id: "musician", title: "Musician", description: "Make music with Scratch!", icon: "🎵", color: "purple", module: "scratch-create" },
+  { id: "storyteller", title: "Storyteller", description: "Create an interactive story!", icon: "📖", color: "primary", module: "scratch-create" },
+  { id: "game-maker", title: "Game Maker", description: "Build your first game!", icon: "🎮", color: "mint", module: "scratch-create" },
+  { id: "messenger", title: "Messenger", description: "Used messages between characters!", icon: "📬", color: "purple", module: "scratch-create" },
+  { id: "sound-designer", title: "Sound Designer", description: "Added sounds and music!", icon: "🎵", color: "peach", module: "scratch-create" },
+  { id: "animator", title: "Animator", description: "Create animations!", icon: "🎬", color: "peach", module: "scratch-advanced" },
+  { id: "coder", title: "Coder", description: "Use loops and conditions!", icon: "💻", color: "sky", module: "scratch-advanced" },
+  { id: "explorer", title: "Explorer", description: "Explore advanced blocks!", icon: "🚀", color: "lavender", module: "scratch-advanced" },
+  { id: "loop-master", title: "Loop Master", description: "Mastered loops and repeats!", icon: "🔁", color: "mint", module: "scratch-advanced" },
+  { id: "graduate", title: "Graduate", description: "Completed the full ScratchJr program!", icon: "🎓", color: "primary", module: "scratch-advanced" },
 ];
 
 export const lessonModules: LessonModule[] = [

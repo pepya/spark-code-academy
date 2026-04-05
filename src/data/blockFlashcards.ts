@@ -5,6 +5,7 @@ export interface BlockCard {
   description: string;
   tip: string;
   note: string;
+  hasNumber?: boolean;
 }
 
 export interface BlockCategory {
@@ -70,7 +71,7 @@ export const blockCategories: BlockCategory[] = [
     blocks: [
       {
         emoji: "→",
-        name: "Move Right",
+        name: "Move Right", hasNumber: true,
         fullName: "Move Right",
         description: "Moves the character to the right by the number of steps shown. The number in the box controls how far — bigger number = farther.",
         tip: "Number 1 = tiny step. Number 10 = big jump across the screen.",
@@ -78,7 +79,7 @@ export const blockCategories: BlockCategory[] = [
       },
       {
         emoji: "←",
-        name: "Move Left",
+        name: "Move Left", hasNumber: true,
         fullName: "Move Left",
         description: "Moves the character to the left. Same as Move Right but in the opposite direction.",
         tip: "Right then Left makes a character pace back and forth.",
@@ -86,7 +87,7 @@ export const blockCategories: BlockCategory[] = [
       },
       {
         emoji: "↑",
-        name: "Move Up",
+        name: "Move Up", hasNumber: true,
         fullName: "Move Up",
         description: "Moves the character up the screen. Use it to make things fly, jump, or float upwards.",
         tip: "Move Up + Move Down = a bouncing ball or a jumping character.",
@@ -94,7 +95,7 @@ export const blockCategories: BlockCategory[] = [
       },
       {
         emoji: "↓",
-        name: "Move Down",
+        name: "Move Down", hasNumber: true,
         fullName: "Move Down",
         description: "Moves the character down the screen. For falling, sinking, or walking downhill.",
         tip: "Make rain fall with several small characters using Move Down in a loop.",
@@ -102,7 +103,7 @@ export const blockCategories: BlockCategory[] = [
       },
       {
         emoji: "↩️",
-        name: "Turn Right",
+        name: "Turn Right", hasNumber: true,
         fullName: "Turn Right",
         description: "Rotates the character clockwise. The number controls how many clockwise turns — 1 turn = a small rotation, 12 turns = a full 360° spin.",
         tip: "Turn Right 6 = half a turn. Turn Right 12 = full spin. Great for wheels and propellers!",
@@ -110,7 +111,7 @@ export const blockCategories: BlockCategory[] = [
       },
       {
         emoji: "↪️",
-        name: "Turn Left",
+        name: "Turn Left", hasNumber: true,
         fullName: "Turn Left",
         description: "Rotates the character counter-clockwise. Opposite of Turn Right.",
         tip: "Turn Right then Turn Left in a loop = a wobbling wiggle dance!",
@@ -152,7 +153,7 @@ export const blockCategories: BlockCategory[] = [
       },
       {
         emoji: "📈",
-        name: "Grow",
+        name: "Grow", hasNumber: true,
         fullName: "Grow",
         description: "Makes the character bigger by one size step. Each Grow block adds one step of size.",
         tip: "Chain 5 Grow blocks in a row to make a character grow dramatically large!",
@@ -160,7 +161,7 @@ export const blockCategories: BlockCategory[] = [
       },
       {
         emoji: "📉",
-        name: "Shrink",
+        name: "Shrink", hasNumber: true,
         fullName: "Shrink",
         description: "Makes the character smaller by one size step. Opposite of Grow.",
         tip: "Shrink + Grow + Shrink + Grow in a loop = a heartbeat pulsing animation!",
@@ -244,7 +245,7 @@ export const blockCategories: BlockCategory[] = [
     blocks: [
       {
         emoji: "⏳",
-        name: "Wait",
+        name: "Wait", hasNumber: true,
         fullName: "Wait",
         description: "Pauses the script for a set number of seconds before continuing to the next block. Controls the timing of your animation.",
         tip: "Say \"Ready?\" → Wait 2 → Say \"GO!\" — the pause makes the countdown feel real.",
@@ -252,7 +253,7 @@ export const blockCategories: BlockCategory[] = [
       },
       {
         emoji: "🔁",
-        name: "Repeat",
+        name: "Repeat", hasNumber: true,
         fullName: "Repeat",
         description: "Runs the blocks inside it a set number of times, then moves on. The number controls how many times it repeats.",
         tip: "Repeat 3 → Move Right → runs Move Right three times in a row without needing three separate blocks.",
@@ -276,7 +277,7 @@ export const blockCategories: BlockCategory[] = [
       },
       {
         emoji: "📄",
-        name: "Go to Page",
+        name: "Go to Page", hasNumber: true,
         fullName: "Go to Page",
         description: "Instantly jumps to a different page (scene) in your project. The number tells it which page to go to.",
         tip: "End of Scene 1 → Go to Page 2. Tap a door → Go to Page 3. Build a whole story with page jumps!",
