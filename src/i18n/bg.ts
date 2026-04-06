@@ -6,6 +6,7 @@ const bg = {
     badges: "Значки",
     flashcards: "Карти с блокове",
     projectGallery: "Галерия с проекти",
+    creativeExpansions: "Творчески разширения",
     forParents: "За родители и учители",
     parentGuide: "Ръководство за родители",
     lessonScripts: "Планове на уроци",

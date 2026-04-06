@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
-import { Home, BookOpen, Award, Layers, Users, ClipboardList, Wrench, GraduationCap, Palette } from "lucide-react";
+import { Home, BookOpen, Award, Layers, Users, ClipboardList, Wrench, GraduationCap, Palette, Sparkles } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import {
@@ -29,6 +29,7 @@ export default function AppSidebar() {
     { to: "/badges", label: t("nav.badges"), icon: Award },
     { to: "/block-flashcards", label: t("nav.flashcards"), icon: Layers },
     { to: "/project-gallery", label: t("nav.projectGallery"), icon: Palette },
+    { to: "/creative-expansions", label: t("nav.creativeExpansions"), icon: Sparkles },
   ];
 
   const parentItems = [

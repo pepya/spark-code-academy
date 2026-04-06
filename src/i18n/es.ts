@@ -6,6 +6,7 @@ const es = {
     badges: "Insignias",
     flashcards: "Tarjetas de bloques",
     projectGallery: "Galería de proyectos",
+    creativeExpansions: "Extensiones creativas",
     forParents: "Para padres y profesores",
     parentGuide: "Guía para padres",
     lessonScripts: "Guiones de lecciones",
