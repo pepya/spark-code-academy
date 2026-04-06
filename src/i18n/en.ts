@@ -5,6 +5,7 @@ const en = {
     lessons: "Lessons",
     badges: "Badges",
     flashcards: "Block Flashcards",
+    projectGallery: "Project Gallery",
     forParents: "For Parents & Teachers",
     parentGuide: "Parent Guide",
     lessonScripts: "Lesson Scripts",
