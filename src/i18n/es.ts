@@ -5,6 +5,7 @@ const es = {
     lessons: "Lecciones",
     badges: "Insignias",
     flashcards: "Tarjetas de bloques",
+    projectGallery: "Galería de proyectos",
     forParents: "Para padres y profesores",
     parentGuide: "Guía para padres",
     lessonScripts: "Guiones de lecciones",
