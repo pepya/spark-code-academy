@@ -14,6 +14,7 @@ import LessonScriptsPage from "@/pages/LessonScriptsPage";
 import ParentResourcesPage from "@/pages/ParentResourcesPage";
 import BlockFlashcardsPage from "@/pages/BlockFlashcardsPage";
 import ProjectGalleryPage from "@/pages/ProjectGalleryPage";
+import CreativeExpansionsPage from "@/pages/CreativeExpansionsPage";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -45,6 +46,7 @@ const App = () => (
                   <Route path="/parent-resources" element={<ParentResourcesPage />} />
                   <Route path="/block-flashcards" element={<BlockFlashcardsPage />} />
                   <Route path="/project-gallery" element={<ProjectGalleryPage />} />
+                  <Route path="/creative-expansions" element={<CreativeExpansionsPage />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
