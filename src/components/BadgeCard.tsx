@@ -18,7 +18,7 @@ export default function BadgeCard({ badge, earned, index }: Props) {
       whileTap={earned ? { scale: 0.95 } : undefined}
       className={`group relative flex flex-col items-center text-center p-5 rounded-2xl border-2 transition-all duration-300 cursor-pointer overflow-hidden ${
         earned
-          ? `bg-gradient-to-br ${gradient} ${borderColor} shadow-lg`
+          ? "bg-gradient-to-br from-primary/20 to-primary/10 border-primary/40 shadow-lg"
           : "bg-muted/50 border-border opacity-50 grayscale"
       }`}
     >
