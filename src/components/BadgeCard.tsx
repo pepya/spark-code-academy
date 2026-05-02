@@ -7,34 +7,8 @@ interface Props {
   index: number;
 }
 
-const categoryColors: Record<string, string> = {
-  accent: "from-[hsl(45,95%,60%)] to-[hsl(45,95%,75%)]",
-  secondary: "from-[hsl(145,60%,48%)] to-[hsl(145,60%,65%)]",
-  coral: "from-[hsl(10,80%,62%)] to-[hsl(10,80%,78%)]",
-  purple: "from-[hsl(270,60%,60%)] to-[hsl(270,60%,75%)]",
-  primary: "from-[hsl(210,80%,55%)] to-[hsl(210,80%,70%)]",
-  mint: "from-[hsl(160,50%,55%)] to-[hsl(160,50%,70%)]",
-  peach: "from-[hsl(25,90%,70%)] to-[hsl(25,90%,82%)]",
-  sky: "from-[hsl(195,85%,65%)] to-[hsl(195,85%,78%)]",
-  lavender: "from-[hsl(250,60%,75%)] to-[hsl(250,60%,85%)]",
-};
-
-const categoryBorders: Record<string, string> = {
-  accent: "border-[hsl(45,95%,60%)]",
-  secondary: "border-[hsl(145,60%,48%)]",
-  coral: "border-[hsl(10,80%,62%)]",
-  purple: "border-[hsl(270,60%,60%)]",
-  primary: "border-[hsl(210,80%,55%)]",
-  mint: "border-[hsl(160,50%,55%)]",
-  peach: "border-[hsl(25,90%,70%)]",
-  sky: "border-[hsl(195,85%,65%)]",
-  lavender: "border-[hsl(250,60%,75%)]",
-};
 
 export default function BadgeCard({ badge, earned, index }: Props) {
-  const gradient = categoryColors[badge.color] || categoryColors.accent;
-  const borderColor = categoryBorders[badge.color] || categoryBorders.accent;
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
