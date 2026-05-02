@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import type { Lesson } from "@/data/lessons";
 import { CheckCircle, Clock, Play, RotateCcw, Star, Sparkles } from "lucide-react";
 
@@ -28,13 +29,19 @@ const difficultyStars = (level: Lesson["level"]) => {
 };
 
 export default function LessonCard({ lesson, completed, inProgress, index }: Props) {
+  const { t } = useTranslation();
+
   const ctaLabel = completed
-    ? "Try Again"
+    ? t("lessonPage.tryAgain")
     : inProgress
-    ? "Continue"
-    : "Let's Go!";
+    ? t("lessonPage.continue")
+    : t("lessonPage.letsGo");
 
   const CtaIcon = completed ? RotateCcw : Play;
+
+  const title = t(`lessonPage.lessons.${lesson.id}.title`, lesson.title);
+  const hook = t(`lessonPage.lessons.${lesson.id}.hook`, lesson.hook);
+  const youllBuild = t(`lessonPage.lessons.${lesson.id}.youllBuild`, lesson.youllBuild);
 
   return (
     <motion.div
@@ -50,7 +57,7 @@ export default function LessonCard({ lesson, completed, inProgress, index }: Pro
           {/* New badge */}
           {lesson.isNew && (
             <div className="absolute top-4 right-4 flex items-center gap-1 bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full animate-fade-in">
-              <Sparkles size={10} /> New!
+              <Sparkles size={10} /> {t("lessonPage.newLabel")}
             </div>
           )}
 
@@ -60,25 +67,25 @@ export default function LessonCard({ lesson, completed, inProgress, index }: Pro
               <span className="text-3xl">{lesson.icon}</span>
               {completed && (
                 <span className="flex items-center gap-1 text-xs font-bold text-secondary bg-secondary/15 px-2 py-1 rounded-full">
-                  <CheckCircle size={14} /> Done ✨
+                  <CheckCircle size={14} /> {t("lessonPage.doneLabel")}
                 </span>
               )}
             </div>
 
             {/* Title */}
             <h3 className="font-display text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
-              {lesson.title}
+              {title}
             </h3>
 
             {/* Hook (teaser) */}
             <p className="text-sm text-primary font-semibold mb-2 italic">
-              {lesson.hook}
+              {hook}
             </p>
 
             {/* You'll Build */}
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-3 bg-muted/50 rounded-lg px-2.5 py-1.5">
-              <span className="font-bold text-foreground">🛠️ You'll build:</span>{" "}
-              {lesson.youllBuild}
+              <span className="font-bold text-foreground">{t("lessonPage.youllBuild")}</span>{" "}
+              {youllBuild}
             </div>
 
             {/* Meta row */}
@@ -88,9 +95,9 @@ export default function LessonCard({ lesson, completed, inProgress, index }: Pro
               </div>
               <div className="flex items-center gap-3 text-xs text-muted-foreground">
                 <span className="flex items-center gap-1">
-                  <Clock size={12} /> {lesson.estimatedMinutes} min
+                  <Clock size={12} /> {lesson.estimatedMinutes} {t("lessonPage.min")}
                 </span>
-                <span>{lesson.steps.length} steps</span>
+                <span>{lesson.steps.length} {t("lessonPage.steps")}</span>
               </div>
             </div>
 

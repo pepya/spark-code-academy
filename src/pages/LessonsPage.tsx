@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { lessons, lessonModules } from "@/data/lessons";
 import LessonCard from "@/components/LessonCard";
@@ -10,6 +11,7 @@ export default function LessonsPage() {
     () => new Set(lessonModules.map(m => m.id))
   );
   const { isLessonCompleted, getLessonStep } = useProgress();
+  const { t } = useTranslation();
 
   const toggleModule = (id: string) => {
     setExpandedModules(prev => {
@@ -31,8 +33,8 @@ export default function LessonsPage() {
     <div className="min-h-screen py-10">
       <div className="container">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-10">
-          <h1 className="font-display text-4xl font-bold text-foreground mb-2">Lessons</h1>
-          <p className="text-muted-foreground text-lg">Choose a category and start building!</p>
+          <h1 className="font-display text-4xl font-bold text-foreground mb-2">{t("lessonPage.lessonsTitle")}</h1>
+          <p className="text-muted-foreground text-lg">{t("lessonPage.lessonsSubtitle")}</p>
         </motion.div>
 
         <div className="space-y-6 max-w-4xl mx-auto">
@@ -58,12 +60,16 @@ export default function LessonsPage() {
                   <span className="text-3xl">{mod.emoji}</span>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <h2 className="font-display text-lg font-bold text-foreground">{mod.title}</h2>
+                      <h2 className="font-display text-lg font-bold text-foreground">
+                        {t(`lessonPage.modules.${mod.id}.title`, mod.title)}
+                      </h2>
                       {isModuleComplete && (
-                        <span className="text-xs bg-secondary/15 text-secondary font-bold px-2 py-0.5 rounded-full">✅ Complete</span>
+                        <span className="text-xs bg-secondary/15 text-secondary font-bold px-2 py-0.5 rounded-full">✅ {t("lessonPage.complete")}</span>
                       )}
                     </div>
-                    <p className="text-sm text-muted-foreground">{mod.description}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {t(`lessonPage.modules.${mod.id}.description`, mod.description)}
+                    </p>
                     <div className="w-full h-1.5 bg-muted rounded-full mt-2 overflow-hidden">
                       <div
                         className="h-full bg-secondary rounded-full transition-all duration-500"
