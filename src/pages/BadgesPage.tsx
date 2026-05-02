@@ -30,30 +30,11 @@ export default function BadgesPage() {
           </div>
         </motion.div>
 
-        {/* Sticker book grid grouped by lesson modules */}
-        <div className="space-y-8">
-          {lessonModules.map((mod) => {
-            const moduleBadges = badges.filter((b) => b.module === mod.id);
-            if (moduleBadges.length === 0) return null;
-
-            return (
-              <motion.section
-                key={mod.id}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-              >
-                <h2 className="font-display text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                  {mod.emoji} {mod.title}
-                </h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                  {moduleBadges.map((badge, i) => (
-                    <BadgeCard key={badge.id} badge={badge} earned={hasBadge(badge.id)} index={i} />
-                  ))}
-                </div>
-              </motion.section>
-            );
-          })}
+        {/* Sticker book grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {badges.map((badge, i) => (
+            <BadgeCard key={badge.id} badge={badge} earned={hasBadge(badge.id)} index={i} />
+          ))}
         </div>
       </div>
     </div>
