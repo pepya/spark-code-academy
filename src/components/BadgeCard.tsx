@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import type { Badge } from "@/data/lessons";
 
 interface Props {
@@ -7,8 +8,9 @@ interface Props {
   index: number;
 }
 
-
 export default function BadgeCard({ badge, earned, index }: Props) {
+  const { t } = useTranslation();
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -22,7 +24,6 @@ export default function BadgeCard({ badge, earned, index }: Props) {
           : "bg-muted/50 border-border opacity-50 grayscale"
       }`}
     >
-      {/* Shimmer overlay on hover */}
       {earned && (
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full" style={{ transition: "transform 0.8s ease, opacity 0.3s ease" }} />
       )}
@@ -34,11 +35,15 @@ export default function BadgeCard({ badge, earned, index }: Props) {
       >
         {badge.icon}
       </motion.span>
-      <h4 className="font-display font-bold text-sm text-foreground relative z-10">{badge.title}</h4>
-      <p className="text-xs text-muted-foreground mt-1 relative z-10">{badge.description}</p>
+      <h4 className="font-display font-bold text-sm text-foreground relative z-10">
+        {t(`badges.${badge.id}.title`, badge.title)}
+      </h4>
+      <p className="text-xs text-muted-foreground mt-1 relative z-10">
+        {t(`badges.${badge.id}.description`, badge.description)}
+      </p>
       {earned && (
         <span className="mt-2 text-[10px] font-bold text-accent-foreground bg-card/80 backdrop-blur-sm px-2 py-0.5 rounded-full relative z-10">
-          EARNED ✨
+          {t("badges.earned")}
         </span>
       )}
     </motion.div>
