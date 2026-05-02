@@ -1,0 +1,40 @@
+const lessonsEn = {
+  lessonsTitle: "Lessons",
+  lessonsSubtitle: "Choose a category and start building!",
+  complete: "Complete",
+  letsGo: "Let's Go!",
+  continue: "Continue",
+  tryAgain: "Try Again",
+  youllBuild: "🛠️ You'll build:",
+  min: "min",
+  steps: "steps",
+  newLabel: "New!",
+  doneLabel: "Done ✨",
+  backToLessons: "Back to Lessons",
+  lessonNotFound: "Lesson not found",
+  goBackToLessons: "Go back to lessons",
+  badgeEarned: "Badge Earned!",
+  awesome: "Awesome! 🎉",
+  completedLesson: "You've completed this lesson! ✨",
+  stepOf: "Step {{current}} of {{total}}",
+  quickQuiz: "🧠 Quick Quiz",
+  completeBtn: "Complete",
+  takeQuiz: "Take Quiz",
+  next: "Next",
+  previous: "Previous",
+  upNext: "⭐ Up Next",
+  openInScratch: "Open in Scratch Editor",
+  beginner: "beginner",
+  intermediate: "intermediate",
+  advanced: "advanced",
+
+  modules: {
+    "scratch-basics": { title: "Scratch Basics", description: "Meet Scratch and ScratchJr — learn the fundamentals" },
+    "scratch-create": { title: "Create & Play", description: "Make music, stories, games, and dance shows" },
+    "scratch-advanced": { title: "Level Up", description: "Master animations, loops, advanced blocks, and final projects" },
+  },
+
+  lessons: {},
+};
+
+export default lessonsEn;
