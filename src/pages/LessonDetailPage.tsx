@@ -1,5 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { lessons, badges } from "@/data/lessons";
 import { useProgress } from "@/hooks/useProgress";
@@ -9,6 +10,7 @@ import BonusChallenges from "@/components/BonusChallenges";
 export default function LessonDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const lesson = lessons.find((l) => l.id === id);
   const { isLessonCompleted, completeLesson, hasBadge, setStep, getLessonStep } = useProgress();
 
@@ -22,8 +24,8 @@ export default function LessonDetailPage() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <span className="text-6xl block mb-4">🤔</span>
-          <h1 className="font-display text-2xl font-bold text-foreground mb-2">Lesson not found</h1>
-          <Link to="/lessons" className="text-primary font-semibold">Go back to lessons</Link>
+          <h1 className="font-display text-2xl font-bold text-foreground mb-2">{t("lessonPage.lessonNotFound")}</h1>
+          <Link to="/lessons" className="text-primary font-semibold">{t("lessonPage.goBackToLessons")}</Link>
         </div>
       </div>
     );
@@ -33,6 +35,14 @@ export default function LessonDetailPage() {
   const badge = badges.find((b) => b.id === lesson.badgeId);
   const isLastStep = currentStep === lesson.steps.length - 1;
   const showQuiz = currentStep === lesson.steps.length;
+
+  // Helper to get translated lesson content with fallback
+  const lt = (key: string, fallback: string) => t(`lessonPage.lessons.${lesson.id}.${key}`, fallback);
+
+  const getStepTitle = (i: number) => t(`lessonPage.lessons.${lesson.id}.steps.${i}.title`, lesson.steps[i].title);
+  const getStepDesc = (i: number) => t(`lessonPage.lessons.${lesson.id}.steps.${i}.description`, lesson.steps[i].description);
+  const getQuizQuestion = () => lesson.quiz ? t(`lessonPage.lessons.${lesson.id}.quiz.question`, lesson.quiz.question) : "";
+  const getQuizOption = (i: number) => lesson.quiz ? t(`lessonPage.lessons.${lesson.id}.quiz.options.${i}`, lesson.quiz.options[i]) : "";
 
   const handleComplete = () => {
     completeLesson(lesson.id, lesson.badgeId);
@@ -57,7 +67,6 @@ export default function LessonDetailPage() {
     }
   };
 
-  // Find next lesson
   const currentIndex = lessons.findIndex(l => l.id === lesson.id);
   const nextLesson = currentIndex < lessons.length - 1 ? lessons[currentIndex + 1] : null;
 
@@ -74,14 +83,14 @@ export default function LessonDetailPage() {
           >
             <div className="bg-card rounded-3xl p-10 text-center shadow-2xl max-w-sm mx-4">
               <span className="text-7xl block mb-4 animate-pop">{badge.icon}</span>
-              <h2 className="font-display text-2xl font-bold text-foreground mb-2">Badge Earned!</h2>
-              <p className="font-display text-lg font-bold text-primary mb-1">{badge.title}</p>
-              <p className="text-muted-foreground text-sm">{badge.description}</p>
+              <h2 className="font-display text-2xl font-bold text-foreground mb-2">{t("lessonPage.badgeEarned")}</h2>
+              <p className="font-display text-lg font-bold text-primary mb-1">{t(`badges.${badge.id}.title`, badge.title)}</p>
+              <p className="text-muted-foreground text-sm">{t(`badges.${badge.id}.description`, badge.description)}</p>
               <button
                 onClick={() => setShowBadge(false)}
                 className="mt-6 bg-primary text-primary-foreground font-display font-bold px-6 py-2 rounded-xl"
               >
-                Awesome! 🎉
+                {t("lessonPage.awesome")}
               </button>
             </div>
           </motion.div>
@@ -91,7 +100,7 @@ export default function LessonDetailPage() {
       <div className="container max-w-3xl">
         {/* Header */}
         <button onClick={() => navigate("/lessons")} className="flex items-center gap-2 text-muted-foreground hover:text-foreground font-semibold mb-6 transition-colors">
-          <ArrowLeft size={18} /> Back to Lessons
+          <ArrowLeft size={18} /> {t("lessonPage.backToLessons")}
         </button>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -103,23 +112,23 @@ export default function LessonDetailPage() {
                 lesson.level === "intermediate" ? "bg-primary/15 text-primary" :
                 "bg-coral/15 text-coral"
               }`}>
-                {lesson.level}
+                {t(`lessonPage.${lesson.level}`)}
               </span>
-              <h1 className="font-display text-3xl font-bold text-foreground mt-1">{lesson.title}</h1>
+              <h1 className="font-display text-3xl font-bold text-foreground mt-1">{lt("title", lesson.title)}</h1>
             </div>
           </div>
 
           {/* Hook teaser */}
-          <p className="text-primary font-semibold italic text-lg mb-2">{lesson.hook}</p>
+          <p className="text-primary font-semibold italic text-lg mb-2">{lt("hook", lesson.hook)}</p>
 
           {/* You'll Build badge */}
           <div className="inline-flex items-center gap-2 text-sm bg-muted/60 rounded-lg px-3 py-1.5 mb-6">
-            <span className="font-bold">🛠️ You'll build:</span> {lesson.youllBuild}
+            <span className="font-bold">{t("lessonPage.youllBuild")}</span> {lt("youllBuild", lesson.youllBuild)}
           </div>
 
           {completed && (
             <div className="flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-xl mb-6 font-semibold text-sm">
-              <CheckCircle size={18} /> You've completed this lesson! ✨
+              <CheckCircle size={18} /> {t("lessonPage.completedLesson")}
             </div>
           )}
 
@@ -147,13 +156,13 @@ export default function LessonDetailPage() {
                 className="bg-card rounded-2xl p-8 border border-border shadow-sm mb-4"
               >
                 <p className="text-sm text-muted-foreground font-bold mb-2">
-                  Step {currentStep + 1} of {lesson.steps.length}
+                  {t("lessonPage.stepOf", { current: currentStep + 1, total: lesson.steps.length })}
                 </p>
                 <h2 className="font-display text-2xl font-bold text-foreground mb-4">
-                  {lesson.steps[currentStep].title}
+                  {getStepTitle(currentStep)}
                 </h2>
                 <p className="text-foreground text-lg leading-relaxed">
-                  {lesson.steps[currentStep].description}
+                  {getStepDesc(currentStep)}
                 </p>
               </motion.div>
             </AnimatePresence>
@@ -164,10 +173,10 @@ export default function LessonDetailPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="bg-card rounded-2xl p-8 border border-border shadow-sm mb-4"
               >
-                <p className="text-sm text-muted-foreground font-bold mb-2">🧠 Quick Quiz</p>
-                <h2 className="font-display text-xl font-bold text-foreground mb-6">{lesson.quiz.question}</h2>
+                <p className="text-sm text-muted-foreground font-bold mb-2">{t("lessonPage.quickQuiz")}</p>
+                <h2 className="font-display text-xl font-bold text-foreground mb-6">{getQuizQuestion()}</h2>
                 <div className="grid gap-3">
-                  {lesson.quiz.options.map((opt, i) => {
+                  {lesson.quiz.options.map((_, i) => {
                     const isCorrect = i === lesson.quiz!.correctIndex;
                     const selected = quizAnswer === i;
                     return (
@@ -192,7 +201,7 @@ export default function LessonDetailPage() {
                             : "border-border opacity-50"
                         }`}
                       >
-                        {opt}
+                        {getQuizOption(i)}
                         {quizAnswer !== null && isCorrect && " ✅"}
                         {selected && !isCorrect && " ❌"}
                       </button>
@@ -212,7 +221,7 @@ export default function LessonDetailPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-accent-foreground bg-accent/80 hover:bg-accent px-4 py-2 rounded-xl transition-colors"
               >
-                <ExternalLink size={14} /> Open in Scratch Editor
+                <ExternalLink size={14} /> {t("lessonPage.openInScratch")}
               </a>
             </div>
           )}
@@ -227,7 +236,7 @@ export default function LessonDetailPage() {
               disabled={currentStep === 0 && !showQuiz}
               className="flex items-center gap-2 px-5 py-3 rounded-xl font-display font-bold text-sm bg-card border border-border text-muted-foreground hover:text-foreground disabled:opacity-30 transition-colors"
             >
-              <ArrowLeft size={16} /> Previous
+              <ArrowLeft size={16} /> {t("lessonPage.previous")}
             </button>
 
             {!showQuiz && (
@@ -236,11 +245,11 @@ export default function LessonDetailPage() {
                 className="flex items-center gap-2 px-5 py-3 rounded-xl font-display font-bold text-sm bg-primary text-primary-foreground hover:scale-105 transition-transform"
               >
                 {isLastStep && !lesson.quiz ? (
-                  <>Complete <Trophy size={16} /></>
+                  <>{t("lessonPage.completeBtn")} <Trophy size={16} /></>
                 ) : isLastStep && lesson.quiz ? (
-                  <>Take Quiz <ArrowRight size={16} /></>
+                  <>{t("lessonPage.takeQuiz")} <ArrowRight size={16} /></>
                 ) : (
-                  <>Next <ArrowRight size={16} /></>
+                  <>{t("lessonPage.next")} <ArrowRight size={16} /></>
                 )}
               </button>
             )}
@@ -252,9 +261,13 @@ export default function LessonDetailPage() {
               <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-secondary/10 border-2 border-primary/20 rounded-2xl p-4 flex items-center gap-4 hover:border-primary/50 transition-all">
                 <span className="text-3xl">{nextLesson.icon}</span>
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs font-bold text-primary uppercase tracking-wide">⭐ Up Next</p>
-                  <h3 className="font-display font-bold text-foreground truncate">{nextLesson.title}</h3>
-                  <p className="text-sm text-muted-foreground italic">{nextLesson.hook}</p>
+                  <p className="text-xs font-bold text-primary uppercase tracking-wide">{t("lessonPage.upNext")}</p>
+                  <h3 className="font-display font-bold text-foreground truncate">
+                    {t(`lessonPage.lessons.${nextLesson.id}.title`, nextLesson.title)}
+                  </h3>
+                  <p className="text-sm text-muted-foreground italic">
+                    {t(`lessonPage.lessons.${nextLesson.id}.hook`, nextLesson.hook)}
+                  </p>
                 </div>
                 <ArrowRight size={18} className="text-primary group-hover:translate-x-1 transition-transform shrink-0" />
               </div>

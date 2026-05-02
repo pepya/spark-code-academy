@@ -4,15 +4,18 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import en from "./en";
 import bg from "./bg";
 import es from "./es";
+import lessonsEn from "./lessons-en";
+import lessonsBg from "./lessons-bg";
+import lessonsEs from "./lessons-es";
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources: {
-      en: { translation: en },
-      bg: { translation: bg },
-      es: { translation: es },
+      en: { translation: { ...en, lessonPage: lessonsEn } },
+      bg: { translation: { ...bg, lessonPage: lessonsBg } },
+      es: { translation: { ...es, lessonPage: lessonsEs } },
     },
     fallbackLng: "en",
     interpolation: { escapeValue: false },
