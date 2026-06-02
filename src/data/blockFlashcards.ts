@@ -1,4 +1,5 @@
 export interface BlockCard {
+  id: string;
   emoji: string;
   name: string;
   fullName: string;
@@ -28,6 +29,7 @@ export const blockCategories: BlockCategory[] = [
     tagline: "Yellow · Go at the START of every script · These make things begin",
     blocks: [
       {
+        id: "green-flag",
         emoji: "▶",
         name: "Green Flag",
         fullName: "Green Flag",
@@ -36,6 +38,7 @@ export const blockCategories: BlockCategory[] = [
         note: "Every script MUST start with a trigger block. No trigger = nothing happens!",
       },
       {
+        id: "tap",
         emoji: "👆",
         name: "Tap",
         fullName: "Tap (Character)",
@@ -44,6 +47,7 @@ export const blockCategories: BlockCategory[] = [
         note: "A character can have BOTH a Green Flag script AND a Tap script — they work independently.",
       },
       {
+        id: "receive",
         emoji: "📩",
         name: "Receive",
         fullName: "Receive Message",
@@ -52,6 +56,7 @@ export const blockCategories: BlockCategory[] = [
         note: "The colour of Send and Receive MUST match exactly. Different colour = nothing happens.",
       },
       {
+        id: "bump",
         emoji: "📳",
         name: "Bump",
         fullName: "Bump (Shake)",
@@ -70,6 +75,7 @@ export const blockCategories: BlockCategory[] = [
     tagline: "Blue · Move characters around the stage",
     blocks: [
       {
+        id: "move-right",
         emoji: "→",
         name: "Move Right", hasNumber: true,
         fullName: "Move Right",
@@ -78,6 +84,7 @@ export const blockCategories: BlockCategory[] = [
         note: "Tap the number inside the block to change it. Chain multiple blocks to travel farther!",
       },
       {
+        id: "move-left",
         emoji: "←",
         name: "Move Left", hasNumber: true,
         fullName: "Move Left",
@@ -86,6 +93,7 @@ export const blockCategories: BlockCategory[] = [
         note: "Characters keep facing the same direction when moving left — they don't flip around automatically.",
       },
       {
+        id: "move-up",
         emoji: "↑",
         name: "Move Up", hasNumber: true,
         fullName: "Move Up",
@@ -94,6 +102,7 @@ export const blockCategories: BlockCategory[] = [
         note: "Combine with Move Right for diagonal movement — characters can move diagonally!",
       },
       {
+        id: "move-down",
         emoji: "↓",
         name: "Move Down", hasNumber: true,
         fullName: "Move Down",
@@ -102,6 +111,7 @@ export const blockCategories: BlockCategory[] = [
         note: "Characters can go below the bottom edge of the screen and \"disappear\" — useful for exits!",
       },
       {
+        id: "turn-right",
         emoji: "↩️",
         name: "Turn Right", hasNumber: true,
         fullName: "Turn Right",
@@ -110,6 +120,7 @@ export const blockCategories: BlockCategory[] = [
         note: "Inside a loop, even a small turn creates a spinning animation effect.",
       },
       {
+        id: "turn-left",
         emoji: "↪️",
         name: "Turn Left", hasNumber: true,
         fullName: "Turn Left",
@@ -118,6 +129,7 @@ export const blockCategories: BlockCategory[] = [
         note: "Alternating Turn Right and Turn Left creates a rocking or shaking effect — perfect for a scared character!",
       },
       {
+        id: "go-home",
         emoji: "🏠",
         name: "Go Home",
         fullName: "Go Home",
@@ -126,6 +138,7 @@ export const blockCategories: BlockCategory[] = [
         note: "A character's home is wherever you placed it when you added it. You can move it to set a new home.",
       },
       {
+        id: "hop",
         emoji: "💨",
         name: "Hop",
         fullName: "Hop",
@@ -144,6 +157,7 @@ export const blockCategories: BlockCategory[] = [
     tagline: "Purple · Change how characters look",
     blocks: [
       {
+        id: "say",
         emoji: "💬",
         name: "Say",
         fullName: "Say",
@@ -152,6 +166,7 @@ export const blockCategories: BlockCategory[] = [
         note: "The bubble appears briefly. Use a Wait block after Say to give people time to read it.",
       },
       {
+        id: "grow",
         emoji: "📈",
         name: "Grow", hasNumber: true,
         fullName: "Grow",
@@ -160,6 +175,7 @@ export const blockCategories: BlockCategory[] = [
         note: "Grow inside a loop creates a continuous growing animation. Combine with Shrink for a pulsing effect.",
       },
       {
+        id: "shrink",
         emoji: "📉",
         name: "Shrink", hasNumber: true,
         fullName: "Shrink",
@@ -168,6 +184,7 @@ export const blockCategories: BlockCategory[] = [
         note: "A character can shrink until it disappears completely — great for a \"poof, it's gone!\" effect.",
       },
       {
+        id: "hide",
         emoji: "🙈",
         name: "Hide",
         fullName: "Hide",
@@ -176,6 +193,7 @@ export const blockCategories: BlockCategory[] = [
         note: "A hidden character's scripts still run! It can still send messages and react — you just can't see it.",
       },
       {
+        id: "show",
         emoji: "👁️",
         name: "Show",
         fullName: "Show",
@@ -184,6 +202,7 @@ export const blockCategories: BlockCategory[] = [
         note: "Hide + Show in a forever loop = a flashing, blinking animation. Great for alarms and lights!",
       },
       {
+        id: "reset-size",
         emoji: "🔄",
         name: "Reset Size",
         fullName: "Reset Size",
@@ -202,6 +221,7 @@ export const blockCategories: BlockCategory[] = [
     tagline: "Green · Add sounds, music & voice",
     blocks: [
       {
+        id: "play-sound",
         emoji: "🎵",
         name: "Play Sound",
         fullName: "Play Sound",
@@ -210,6 +230,7 @@ export const blockCategories: BlockCategory[] = [
         note: "The script continues while the sound plays. Use a Wait block if you want the next action to happen AFTER the sound finishes.",
       },
       {
+        id: "record",
         emoji: "🎤",
         name: "Record",
         fullName: "Record (Voice)",
@@ -218,6 +239,7 @@ export const blockCategories: BlockCategory[] = [
         note: "Record in a quiet room and speak clearly. Each block can hold one unique recording.",
       },
       {
+        id: "stop-sound",
         emoji: "🔇",
         name: "Stop Sound",
         fullName: "Stop Sound",
@@ -226,6 +248,7 @@ export const blockCategories: BlockCategory[] = [
         note: "Stops ALL sounds — not just the one from the same character. Good for a reset or \"game over\" moment.",
       },
       {
+        id: "play-note",
         emoji: "🎹",
         name: "Play Note",
         fullName: "Play Note",
@@ -244,6 +267,7 @@ export const blockCategories: BlockCategory[] = [
     tagline: "Orange · Control timing, repeating & messages",
     blocks: [
       {
+        id: "wait",
         emoji: "⏳",
         name: "Wait", hasNumber: true,
         fullName: "Wait",
@@ -252,6 +276,7 @@ export const blockCategories: BlockCategory[] = [
         note: "Wait 1 = 1 second pause. Experiment — different wait times create totally different moods!",
       },
       {
+        id: "repeat",
         emoji: "🔁",
         name: "Repeat", hasNumber: true,
         fullName: "Repeat",
@@ -260,6 +285,7 @@ export const blockCategories: BlockCategory[] = [
         note: "Repeat 0 = skips the blocks inside entirely. Repeat 100 = runs a very long time. What does Repeat 1 do?",
       },
       {
+        id: "forever",
         emoji: "♾️",
         name: "Forever",
         fullName: "Forever (Loop)",
@@ -268,6 +294,7 @@ export const blockCategories: BlockCategory[] = [
         note: "Nothing after a Forever block will ever run — it loops infinitely. Use Stop to end it.",
       },
       {
+        id: "send",
         emoji: "📤",
         name: "Send",
         fullName: "Send Message",
@@ -276,6 +303,7 @@ export const blockCategories: BlockCategory[] = [
         note: "ALL characters with the matching colour Receive block will react — you can trigger many characters with one Send!",
       },
       {
+        id: "go-to-page",
         emoji: "📄",
         name: "Go to Page", hasNumber: true,
         fullName: "Go to Page",
@@ -294,6 +322,7 @@ export const blockCategories: BlockCategory[] = [
     tagline: "Red · Go at the END of a script · These finish things off",
     blocks: [
       {
+        id: "stop",
         emoji: "🛑",
         name: "Stop",
         fullName: "Stop",
@@ -302,6 +331,7 @@ export const blockCategories: BlockCategory[] = [
         note: "Stop is permanent — nothing can restart after Stop except pressing the Green Flag again.",
       },
       {
+        id: "go-back",
         emoji: "🔂",
         name: "Go Back",
         fullName: "Go Back to Start",
