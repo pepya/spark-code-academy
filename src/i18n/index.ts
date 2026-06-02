@@ -7,15 +7,18 @@ import es from "./es";
 import lessonsEn from "./lessons-en";
 import lessonsBg from "./lessons-bg";
 import lessonsEs from "./lessons-es";
+import flashcardsEn from "./flashcards-en";
+import flashcardsBg from "./flashcards-bg";
+import flashcardsEs from "./flashcards-es";
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources: {
-      en: { translation: { ...en, lessonPage: lessonsEn } },
-      bg: { translation: { ...bg, lessonPage: lessonsBg } },
-      es: { translation: { ...es, lessonPage: lessonsEs } },
+      en: { translation: { ...en, lessonPage: lessonsEn, flashcardsPage: flashcardsEn } },
+      bg: { translation: { ...bg, lessonPage: lessonsBg, flashcardsPage: flashcardsBg } },
+      es: { translation: { ...es, lessonPage: lessonsEs, flashcardsPage: flashcardsEs } },
     },
     fallbackLng: "en",
     interpolation: { escapeValue: false },
